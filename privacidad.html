@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de privacidad | ualvarez</title>
+  <meta name="description" content="Qué datos personales recibe ualvarez, para qué los usa y cómo ejercer tus derechos según la Ley 25.326.">
+  <meta name="theme-color" content="#F3EDE4">
+
+  <link rel="icon" type="image/svg+xml" href="./assets/marca/favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/marca/ua-icono-512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Paleta del manual de marca (la misma que index.html) */
+    :root {
+      --papel: #F3EDE4;
+      --blanco: #FFFFFF;
+      --tinta: #15121F;
+      --violeta: #6D4AFF;
+      --violeta-hover: #5B3BE8;
+      --violeta-texto: #5B3BE8;
+      --violeta-texto-osc: #8B70FF;
+      --tinta-suave: #6E6355;
+      --tinta-suave-osc: #B8AC9C;
+      --linea: #E4DBCD;
+      --linea-osc: #2E2840;
+      --fuente: 'Space Grotesk', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--papel);
+      color: var(--tinta);
+      font-family: var(--fuente);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--violeta-texto); }
+    p, li { max-width: 40rem; }
+    p { margin: 0 0 1em; }
+    img { display: block; }
+    :focus-visible { outline: 3px solid var(--violeta-texto); outline-offset: 3px; border-radius: 4px; }
+    .oscuro :focus-visible { outline-color: var(--violeta-texto-osc); }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 560px) { .wrap { padding: 0 16px; } }
+
+    h1, h2 { font-weight: 600; margin: 0; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.02; letter-spacing: -0.04em; margin-bottom: 20px; }
+    h2 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 12px; }
+
+    .etiqueta {
+      display: block; margin: 0 0 18px;
+      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--tinta-suave);
+    }
+
+    .boton {
+      display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 999px;
+      font-weight: 600; font-size: .92rem; line-height: 1; text-decoration: none;
+      background: var(--violeta); color: var(--blanco); transition: background-color .15s ease;
+    }
+    .boton:hover { background: var(--violeta-hover); }
+
+    .encabezado { position: sticky; top: 0; z-index: 50; background: var(--papel); border-bottom: 1px solid var(--linea); }
+    .encabezado .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+    .marca { display: block; padding: 6px 0; }
+    .marca img { width: 128px; height: auto; }
+
+    main { padding: 72px 0 96px; }
+    @media (max-width: 700px) { main { padding: 48px 0 64px; } }
+    .bajada { font-size: 1.15rem; color: var(--tinta-suave); }
+    .actualizado { font-size: .95rem; color: var(--tinta-suave); margin-bottom: 48px; }
+
+    .bloque { border-top: 1px solid var(--linea); padding: 32px 0; }
+    .bloque ul { margin: 0 0 1em; padding-left: 1.2em; }
+    .bloque li { margin-bottom: 6px; }
+    .legal {
+      margin-top: 16px; padding: 24px; border-radius: 18px;
+      background: var(--blanco); border: 1px solid var(--linea);
+      font-size: .95rem; color: var(--tinta-suave);
+    }
+    .legal p:last-child { margin-bottom: 0; }
+
+    footer { background: var(--tinta); color: var(--tinta-suave-osc); border-top: 1px solid var(--linea-osc); padding: 32px 0; font-size: .95rem; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer img { width: 104px; height: auto; }
+    footer p { margin: 0; }
+    footer a { color: var(--tinta-suave-osc); }
+    footer a:hover { color: var(--papel); }
+  </style>
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="wrap">
+    <a href="./" class="marca" aria-label="ualvarez, volver al inicio">
+      <img src="./assets/marca/ualvarez-logo.svg" alt="ualvarez" width="128" height="22">
+    </a>
+    <a href="./#contacto" class="boton">Escribime</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <span class="etiqueta">Legal</span>
+    <h1>Política de privacidad</h1>
+    <p class="bajada">Qué datos tuyos recibo, para qué los uso y cómo podés pedir verlos, corregirlos o borrarlos.</p>
+    <p class="actualizado">Última actualización: 21 de noviembre de 2026.</p>
+
+    <section class="bloque">
+      <h2>Quién es responsable de tus datos</h2>
+      <p>Uriel Alvarez (ualvarez), con domicilio en Rosario, Santa Fe, Argentina. Para cualquier consulta sobre tus datos escribime a <a href="mailto:contacto@ualvarez.com.ar">contacto@ualvarez.com.ar</a>.</p>
+    </section>
+
+    <section class="bloque">
+      <h2>Qué datos recibo</h2>
+      <p>Este sitio no tiene formularios, no usa cookies y no tiene herramientas de seguimiento ni de publicidad. Solo recibo los datos que vos me mandás cuando me escribís por email:</p>
+      <ul>
+        <li>tu nombre y tu dirección de email;</li>
+        <li>lo que me cuentes en el mensaje sobre vos, tu negocio o tu proyecto.</li>
+      </ul>
+    </section>
+
+    <section class="bloque">
+      <h2>Para qué los uso</h2>
+      <p>Solo para responderte, armar una propuesta y, si trabajamos juntos, llevar adelante el proyecto. No los uso para enviarte publicidad, no los vendo y no los comparto con terceros, salvo que una ley o una autoridad competente me lo exija.</p>
+      <p>Los guardo mientras dure la consulta o el trabajo, y después el tiempo necesario para cumplir obligaciones legales, como las impositivas. Cuando dejan de ser necesarios, los borro.</p>
+    </section>
+
+    <section class="bloque">
+      <h2>Servicios externos que usa el sitio</h2>
+      <p>Para funcionar, el sitio usa dos servicios que pueden registrar datos técnicos de tu visita, como tu dirección IP y tu navegador:</p>
+      <ul>
+        <li><strong>Netlify</strong>, que aloja el sitio y guarda registros técnicos de las visitas.</li>
+        <li><strong>Google Fonts</strong>, que sirve la tipografía del sitio.</li>
+      </ul>
+      <p>Estos datos los trata cada servicio según su propia política de privacidad. Yo no los uso para identificarte.</p>
+    </section>
+
+    <section class="bloque">
+      <h2>Tus derechos</h2>
+      <p>Según la Ley 25.326 de Protección de los Datos Personales, podés pedirme en cualquier momento:</p>
+      <ul>
+        <li><strong>acceso:</strong> saber qué datos tuyos tengo;</li>
+        <li><strong>rectificación y actualización:</strong> corregir los que estén mal o desactualizados;</li>
+        <li><strong>supresión:</strong> que los borre.</li>
+      </ul>
+      <p>Para hacerlo, escribime a <a href="mailto:contacto@ualvarez.com.ar?subject=Mis%20datos%20personales">contacto@ualvarez.com.ar</a> desde el email con el que me contactaste. Respondo los pedidos de acceso en un plazo máximo de 10 días corridos y los de rectificación o supresión en un máximo de 5 días hábiles, como establece la ley.</p>
+
+      <div class="legal">
+        <p>El titular de los datos personales tiene la facultad de ejercer el derecho de acceso a los mismos en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto conforme lo establecido en el artículo 14, inciso 3 de la Ley N° 25.326.</p>
+        <p>La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales.</p>
+      </div>
+    </section>
+
+    <section class="bloque">
+      <h2>Cambios en esta política</h2>
+      <p>Si cambia algo, por ejemplo si agrego un formulario o una herramienta de estadísticas, actualizo esta página y la fecha de arriba.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="oscuro">
+  <div class="wrap">
+    <img src="./assets/marca/ualvarez-logo-claro.svg" alt="ualvarez" width="104" height="18">
+    <p><a href="./">Inicio</a> · © 2026 · Rosario, Argentina</p>
+  </div>
+</footer>
+
+</body>
+</html>
