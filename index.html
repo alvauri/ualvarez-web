@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ualvarez | Sitios web simples, sin vueltas</title>
-  <meta name="description" content="Diseño y programo sitios web claros para profesionales y negocios. Precio y plazo cerrados antes de empezar. Desde Rosario, Argentina.">
+  <title>ualvarez | Te ayudo a digitalizar tu negocio</title>
+  <meta name="description" content="Webs, relevamiento de procesos, automatizaciones y dashboards para negocios. Precio y plazo cerrados antes de empezar. Desde Rosario, Argentina.">
 
-  <meta property="og:title" content="ualvarez | Sitios web simples, sin vueltas">
-  <meta property="og:description" content="Sitios web claros para profesionales y negocios. Precio y plazo cerrados antes de empezar.">
+  <meta property="og:title" content="ualvarez | Te ayudo a digitalizar tu negocio">
+  <meta property="og:description" content="Webs, procesos, automatizaciones y dashboards para negocios. Precio y plazo cerrados antes de empezar.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://ualvarez.com.ar/assets/og.png">
   <meta name="theme-color" content="#F3EDE4">
@@ -115,7 +115,7 @@
     .heroe h1 {
       font-size: clamp(2.8rem, 7vw, 5.5rem);
       line-height: .98; letter-spacing: -0.045em;
-      max-width: 10ch; margin-bottom: 28px;
+      max-width: 12ch; margin-bottom: 28px;
     }
     .heroe .bajada { font-size: 1.2rem; color: var(--tinta-suave); max-width: 32rem; margin-bottom: 32px; }
     .acciones { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -210,9 +210,13 @@
       .pasos li { padding: 24px 0; border-top: 1px solid var(--linea); }
     }
 
-    /* Otros servicios: dashboards, consultoría e ingeniería */
-    .servicios { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-    .servicio { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; }
+    /* Servicios: de la web a un negocio ordenado, en etapas */
+    .servicios { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; counter-reset: servicio; }
+    .servicio { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; counter-increment: servicio; position: relative; }
+    .servicio::after {
+      content: "0" counter(servicio); position: absolute; top: 28px; right: 28px;
+      font-size: .78rem; font-weight: 600; letter-spacing: .14em; color: var(--tinta-suave);
+    }
     .servicio .icono {
       width: 48px; height: 48px; border-radius: 14px; margin-bottom: 20px;
       display: flex; align-items: center; justify-content: center;
@@ -225,7 +229,7 @@
     .servicio ul { margin: auto 0 0; padding: 18px 0 0; list-style: none; border-top: 1px solid var(--linea); font-size: .98rem; }
     .servicio li { padding-left: 20px; position: relative; margin-bottom: 6px; }
     .servicio li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--violeta); }
-    @media (max-width: 900px) { .servicios { grid-template-columns: 1fr; } .servicio { padding: 24px; } }
+    @media (max-width: 760px) { .servicios { grid-template-columns: 1fr; } .servicio { padding: 24px; } .servicio::after { top: 24px; right: 24px; } }
 
     /* Sobre mí */
     .sobre-mi { padding-top: 0; }
@@ -259,6 +263,7 @@
   <defs>
     <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></g></symbol>
     <symbol id="i-abrir" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 9h19"/><path d="M6 6.5h.01M9 6.5h.01"/></g></symbol>
     <symbol id="i-tablero" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></g></symbol>
     <symbol id="i-brujula" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></g></symbol>
     <symbol id="i-engranaje" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></g></symbol>
@@ -271,9 +276,9 @@
       <img src="./assets/marca/ualvarez-logo.svg" alt="ualvarez" width="128" height="22">
     </a>
     <nav aria-label="Principal">
+      <a href="#servicios">Servicios</a>
       <a href="#trabajos">Trabajos</a>
       <a href="#como-trabajo">Cómo trabajo</a>
-      <a href="#servicios">Servicios</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#contacto" class="boton boton-violeta">Escribime</a>
     </nav>
@@ -284,12 +289,12 @@
   <section class="heroe">
     <div class="wrap">
       <div>
-        <span class="etiqueta">Diseño y desarrollo web</span>
-        <h1>Sitios web simples, sin vueltas.</h1>
-        <p class="bajada">Diseño y programo páginas claras para profesionales y negocios: que se entiendan rápido, se vean bien en el celular y lleven a tus clientes a escribirte.</p>
+        <span class="etiqueta">Soluciones digitales para negocios</span>
+        <h1>Te ayudo a digitalizar tu negocio.</h1>
+        <p class="bajada">Empezamos por tu web y seguimos por lo que más te haga falta: ordenar cómo trabajás, automatizar tareas repetitivas y ver tus números a simple vista.</p>
         <div class="acciones">
           <a href="#contacto" class="boton boton-violeta">Contame tu proyecto</a>
-          <a href="#trabajos" class="boton boton-borde">Ver trabajos</a>
+          <a href="#servicios" class="boton boton-borde">Ver servicios</a>
         </div>
         <p class="lugar">Desde Rosario, para negocios de todo el país.</p>
       </div>
@@ -302,10 +307,60 @@
     </div>
   </section>
 
+  <section id="servicios">
+    <div class="wrap">
+      <span class="etiqueta">Servicios</span>
+      <h2>De tu web a un negocio ordenado.</h2>
+      <p class="intro">Arrancamos por lo que más necesitás hoy y sumamos el resto cuando tenga sentido. Cada etapa se apoya en la anterior.</p>
+      <ul class="servicios">
+        <li class="servicio">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-web"/></svg></span>
+          <h3>Webs y catálogos</h3>
+          <p>Tu negocio en internet: un sitio claro o un catálogo que lleva a tus clientes directo a escribirte.</p>
+          <ul>
+            <li>Landings y sitios de presentación</li>
+            <li>Catálogos con consulta por WhatsApp</li>
+            <li>Dominio propio y conexión segura</li>
+          </ul>
+        </li>
+        <li class="servicio">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-brujula"/></svg></span>
+          <h3>Relevamiento y diagnóstico</h3>
+          <p>Miro cómo trabajás hoy, dónde se pierde tiempo o información, y te propongo mejoras concretas, por escrito.</p>
+          <ul>
+            <li>Relevamiento de tus procesos actuales</li>
+            <li>Diagrama de cómo funciona hoy y cómo podría funcionar</li>
+            <li>Propuesta por etapas con costos claros</li>
+          </ul>
+        </li>
+        <li class="servicio">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-engranaje"/></svg></span>
+          <h3>Automatizaciones</h3>
+          <p>Menos tareas repetitivas: formularios que cargan datos solos, avisos automáticos y planillas conectadas entre sí.</p>
+          <ul>
+            <li>Formularios conectados a tus planillas</li>
+            <li>Avisos automáticos por mail o WhatsApp</li>
+            <li>Integraciones entre las herramientas que ya usás</li>
+          </ul>
+        </li>
+        <li class="servicio">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-tablero"/></svg></span>
+          <h3>Dashboards y reportes</h3>
+          <p>Paso tus planillas y sistemas a un tablero claro, con lo que necesitás medir a simple vista: ventas, stock, clientes o tiempos.</p>
+          <ul>
+            <li>Indicadores clave en una sola pantalla</li>
+            <li>Conectado a Excel, Google Sheets o tu sistema</li>
+            <li>Se actualiza solo y se ve en el celular</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <section id="trabajos">
     <div class="wrap">
       <span class="etiqueta">Trabajos</span>
-      <h2>Sitios que ya están funcionando.</h2>
+      <h2>Proyectos que ya están funcionando.</h2>
       <p class="intro">Con clientes reales, que hoy los usan para vender y atender.</p>
       <ul class="trabajos">
         <li class="trabajo">
@@ -349,24 +404,24 @@
   <section class="incluye-seccion">
     <div class="wrap">
       <span class="etiqueta">Qué incluye</span>
-      <h2>Qué incluye tu web.</h2>
-      <p class="intro">Un sitio pensado para que te encuentren, te entiendan y te escriban.</p>
+      <h2>Qué incluye cada proyecto.</h2>
+      <p class="intro">Sea una web o una automatización, trabajo siempre con las mismas reglas.</p>
       <div class="incluye">
         <div>
-          <h3>Landings y sitios de presentación</h3>
-          <p>De una o pocas páginas, con todo lo que tus clientes necesitan saber en un solo lugar.</p>
+          <h3>Primero entender, después construir</h3>
+          <p>Antes de proponer nada, entiendo cómo funciona tu negocio. Así la solución resuelve un problema real.</p>
         </div>
         <div>
-          <h3>Un mensaje que se entiende rápido</h3>
-          <p>Sin textos de relleno ni diseños recargados. Quien entra sabe qué hacés y cómo contactarte.</p>
+          <h3>Simple de usar</h3>
+          <p>Sin pantallas recargadas ni pasos de más. Lo que te entrego lo podés usar desde el primer día.</p>
         </div>
         <div>
           <h3>Precio y plazo cerrados</h3>
           <p>Antes de arrancar acordamos qué incluye, cuánto cuesta y cuándo está listo. Sin costos ocultos.</p>
         </div>
         <div>
-          <h3>El sitio es tuyo</h3>
-          <p>Te entrego el dominio, el código y una guía simple para que sepas qué tenés y cómo manejarlo.</p>
+          <h3>Todo queda a tu nombre</h3>
+          <p>Te entrego el dominio, el código, los accesos y una guía simple para que sepas qué tenés y cómo manejarlo.</p>
         </div>
       </div>
     </div>
@@ -380,61 +435,21 @@
       <ol class="pasos">
         <li>
           <h3>Charla inicial</h3>
-          <p>Me contás qué hace tu negocio, qué querés lograr y a quién le hablás.</p>
+          <p>Me contás qué hace tu negocio, cómo trabajás hoy y qué querés mejorar.</p>
         </li>
         <li>
           <h3>Propuesta por escrito</h3>
-          <p>Te mando qué secciones va a tener el sitio, el plazo de entrega y el precio total.</p>
+          <p>Te mando qué incluye el trabajo, el plazo de entrega y el precio total.</p>
         </li>
         <li>
-          <h3>Diseño y revisión</h3>
-          <p>Armo el sitio y lo revisamos juntos hasta que quede como lo necesitás.</p>
+          <h3>Desarrollo y revisión</h3>
+          <p>Lo armo y lo revisamos juntos hasta que quede como lo necesitás.</p>
         </li>
         <li>
-          <h3>Publicación</h3>
-          <p>Lo pongo online con tu dominio y te enseño a actualizarlo.</p>
+          <h3>Entrega</h3>
+          <p>Lo dejo funcionando y te enseño a usarlo y actualizarlo.</p>
         </li>
       </ol>
-    </div>
-  </section>
-
-  <section id="servicios">
-    <div class="wrap">
-      <span class="etiqueta">Otros servicios</span>
-      <h2>Más que una web: datos, procesos y tecnología.</h2>
-      <p class="intro">Además de sitios, ayudo a negocios a ordenar su información, decidir con números y resolver problemas técnicos.</p>
-      <ul class="servicios">
-        <li class="servicio">
-          <span class="icono" aria-hidden="true"><svg><use href="#i-tablero"/></svg></span>
-          <h3>Dashboards y reportes</h3>
-          <p>Paso tus planillas y sistemas a un tablero claro, con lo que necesitás medir a simple vista: ventas, stock, clientes o tiempos.</p>
-          <ul>
-            <li>Indicadores clave en una sola pantalla</li>
-            <li>Conectado a Excel, Google Sheets o tu sistema</li>
-            <li>Se actualiza solo y se ve en el celular</li>
-          </ul>
-        </li>
-        <li class="servicio">
-          <span class="icono" aria-hidden="true"><svg><use href="#i-brujula"/></svg></span>
-          <h3>Consultoría tecnológica</h3>
-          <p>Si no sabés por dónde empezar, te ayudo a elegir herramientas, ordenar procesos y armar un plan realista para tu negocio.</p>
-          <ul>
-            <li>Diagnóstico de cómo trabajás hoy</li>
-            <li>Recomendaciones sin atarte a ninguna marca</li>
-            <li>Plan por etapas con costos claros</li>
-          </ul>
-        </li>
-        <li class="servicio">
-          <span class="icono" aria-hidden="true"><svg><use href="#i-engranaje"/></svg></span>
-          <h3>Ingeniería y automatización</h3>
-          <p>Soluciones a medida cuando lo estándar no alcanza: menos tareas repetitivas, sistemas que se hablan entre sí y datos ordenados.</p>
-          <ul>
-            <li>Automatización de tareas y reportes</li>
-            <li>Integraciones entre sistemas y APIs</li>
-            <li>Bases de datos y servicios en la nube</li>
-          </ul>
-        </li>
-      </ul>
     </div>
   </section>
 
@@ -445,8 +460,9 @@
         <h2>Uriel Alvarez</h2>
       </div>
       <div>
-        <p>Trabajo en tecnología y hago sitios web porque creo que la mejor forma de presentar un negocio es con claridad, buen diseño y sin complicaciones.</p>
-        <p>Trabajás directamente conmigo, de la primera charla a la publicación. No hay intermediarios ni respuestas automáticas.</p>
+        <p>Soy consultor en transformación digital. Encaro cada proyecto como un proyecto de software: primero entiendo el problema, después diseño la solución y recién ahí la construyo.</p>
+        <p>Del análisis funcional traigo el relevamiento de requerimientos, el modelado de procesos y la documentación clara. De la ingeniería de software, el diseño de la solución, el desarrollo y las pruebas antes de entregar.</p>
+        <p>Trabajás directamente conmigo, de la primera charla a la entrega, sin intermediarios.</p>
       </div>
     </div></div>
   </section>
@@ -457,7 +473,7 @@
       <h2>Hablemos de tu proyecto.</h2>
       <p class="intro">Contame qué hacés y qué necesitás. Te respondo en el día con una propuesta o con las preguntas que me falten.</p>
       <div class="acciones">
-        <a class="boton boton-violeta" href="mailto:contacto@ualvarez.com.ar?subject=Proyecto%20web">
+        <a class="boton boton-violeta" href="mailto:contacto@ualvarez.com.ar?subject=Consulta%20por%20mi%20negocio">
           <svg aria-hidden="true"><use href="#i-mail"/></svg>contacto@ualvarez.com.ar
         </a>
       </div>
