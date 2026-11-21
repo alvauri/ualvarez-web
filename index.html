@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ualvarez | Te ayudo a digitalizar tu negocio</title>
-  <meta name="description" content="Webs, relevamiento de procesos, automatizaciones y dashboards para negocios. Precio y plazo cerrados antes de empezar. Desde Rosario, Argentina.">
+  <meta name="description" content="Webs, relevamiento de procesos y automatizaciones para negocios. Precio y plazo cerrados antes de empezar. Desde Rosario, Argentina.">
 
   <meta property="og:title" content="ualvarez | Te ayudo a digitalizar tu negocio">
-  <meta property="og:description" content="Webs, procesos, automatizaciones y dashboards para negocios. Precio y plazo cerrados antes de empezar.">
+  <meta property="og:description" content="Webs, procesos y automatizaciones para negocios. Precio y plazo cerrados antes de empezar.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://ualvarez.com.ar/assets/og.png">
   <meta name="theme-color" content="#F3EDE4">
@@ -211,7 +211,7 @@
     }
 
     /* Servicios: de la web a un negocio ordenado, en etapas */
-    .servicios { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; counter-reset: servicio; }
+    .servicios { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: servicio; }
     .servicio { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; counter-increment: servicio; position: relative; }
     .servicio::after {
       content: "0" counter(servicio); position: absolute; top: 28px; right: 28px;
@@ -229,7 +229,7 @@
     .servicio ul { margin: auto 0 0; padding: 18px 0 0; list-style: none; border-top: 1px solid var(--linea); font-size: .98rem; }
     .servicio li { padding-left: 20px; position: relative; margin-bottom: 6px; }
     .servicio li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--violeta); }
-    @media (max-width: 760px) { .servicios { grid-template-columns: 1fr; } .servicio { padding: 24px; } .servicio::after { top: 24px; right: 24px; } }
+    @media (max-width: 900px) { .servicios { grid-template-columns: 1fr; } .servicio { padding: 24px; } .servicio::after { top: 24px; right: 24px; } }
 
     /* Sobre mí */
     .sobre-mi { padding-top: 0; }
@@ -264,7 +264,6 @@
     <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></g></symbol>
     <symbol id="i-abrir" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g></symbol>
     <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 9h19"/><path d="M6 6.5h.01M9 6.5h.01"/></g></symbol>
-    <symbol id="i-tablero" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></g></symbol>
     <symbol id="i-brujula" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></g></symbol>
     <symbol id="i-engranaje" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></g></symbol>
   </defs>
@@ -291,7 +290,7 @@
       <div>
         <span class="etiqueta">Soluciones digitales para negocios</span>
         <h1>Te ayudo a digitalizar tu negocio.</h1>
-        <p class="bajada">Empezamos por tu web y seguimos por lo que más te haga falta: ordenar cómo trabajás, automatizar tareas repetitivas y ver tus números a simple vista.</p>
+        <p class="bajada">Empezamos por tu web y seguimos por lo que más te haga falta: ordenar cómo trabajás y automatizar tareas repetitivas.</p>
         <div class="acciones">
           <a href="#contacto" class="boton boton-violeta">Contame tu proyecto</a>
           <a href="#servicios" class="boton boton-borde">Ver servicios</a>
@@ -341,16 +340,6 @@
             <li>Formularios conectados a tus planillas</li>
             <li>Avisos automáticos por mail o WhatsApp</li>
             <li>Integraciones entre las herramientas que ya usás</li>
-          </ul>
-        </li>
-        <li class="servicio">
-          <span class="icono" aria-hidden="true"><svg><use href="#i-tablero"/></svg></span>
-          <h3>Dashboards y reportes</h3>
-          <p>Paso tus planillas y sistemas a un tablero claro, con lo que necesitás medir a simple vista: ventas, stock, clientes o tiempos.</p>
-          <ul>
-            <li>Indicadores clave en una sola pantalla</li>
-            <li>Conectado a Excel, Google Sheets o tu sistema</li>
-            <li>Se actualiza solo y se ve en el celular</li>
           </ul>
         </li>
       </ul>
