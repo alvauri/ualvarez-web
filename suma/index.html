@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ualvarez suma | Webs gratis para organizaciones sin fines de lucro</title>
+  <meta name="description" content="Cada semestre armo gratis la web, la identidad o el orden de cuentas de una organización sin fines de lucro. Postulá a tu organización.">
+  <link rel="canonical" href="https://ualvarez.com.ar/suma/">
+
+  <meta property="og:title" content="ualvarez suma | Webs gratis para organizaciones sin fines de lucro">
+  <meta property="og:description" content="Cada semestre armo gratis la web, la identidad o el orden de cuentas de una organización sin fines de lucro. Postulá a tu organización.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ualvarez.com.ar/suma/">
+  <meta property="og:image" content="https://ualvarez.com.ar/assets/og.png">
+  <meta name="theme-color" content="#F3EDE4">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/marca/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/marca/ua-icono-512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Paleta del manual de marca (la misma que index.html) */
+    :root {
+      --papel: #F3EDE4;
+      --papel-2: #FAF7F2;
+      --blanco: #FFFFFF;
+      --tinta: #15121F;
+      --violeta: #6D4AFF;
+      --violeta-hover: #5B3BE8;
+      --violeta-texto: #5B3BE8;
+      --violeta-texto-osc: #8B70FF;
+      --tinta-suave: #6E6355;
+      --tinta-suave-osc: #B8AC9C;
+      --linea: #E4DBCD;
+      --linea-osc: #2E2840;
+      --fuente: 'Space Grotesk', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      margin: 0;
+      background: var(--papel);
+      color: var(--tinta);
+      font-family: var(--fuente);
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    a { color: var(--violeta-texto); }
+    p { margin: 0 0 1em; max-width: 38rem; }
+    img { display: block; }
+    :focus-visible { outline: 3px solid var(--violeta-texto); outline-offset: 3px; border-radius: 4px; }
+    .oscuro :focus-visible { outline-color: var(--violeta-texto-osc); }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 560px) { .wrap { padding: 0 16px; } }
+
+    h1, h2, h3 { font-weight: 600; margin: 0; letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.05; margin-bottom: 0.5em; }
+    h3 { font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.02em; }
+
+    .etiqueta {
+      display: block; margin: 0 0 18px;
+      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--tinta-suave);
+    }
+    .oscuro .etiqueta { color: var(--tinta-suave-osc); }
+
+    .boton {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px; border-radius: 999px;
+      font-family: inherit; font-weight: 600; font-size: 1rem; line-height: 1;
+      text-decoration: none; cursor: pointer; border: 2px solid transparent;
+      transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+    }
+    .boton svg { width: 18px; height: 18px; flex: none; }
+    .boton-violeta { background: var(--violeta); color: var(--blanco); }
+    .boton-violeta:hover { background: var(--violeta-hover); }
+
+    /* Encabezado (igual al del sitio) */
+    .encabezado { position: sticky; top: 0; z-index: 50; background: var(--papel); border-bottom: 1px solid var(--linea); }
+    .encabezado .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+    .marca { display: block; padding: 6px 0; }
+    .marca img { width: 128px; height: auto; }
+    .encabezado nav { display: flex; align-items: center; gap: 28px; }
+    .encabezado nav a:not(.boton) { font-size: .95rem; color: var(--tinta-suave); text-decoration: none; }
+    .encabezado nav a:not(.boton):hover, .encabezado nav a[aria-current] { color: var(--tinta); }
+    .encabezado .boton { padding: 10px 18px; font-size: .92rem; }
+    @media (max-width: 760px) { .encabezado nav a:not(.boton) { display: none; } }
+
+    /* Héroe con el monograma "Latido" */
+    .heroe { padding: 88px 0 96px; }
+    .heroe .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
+    .heroe h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: .95; letter-spacing: -0.045em; margin-bottom: 36px;
+    }
+    .heroe h1 span { color: var(--violeta-texto); }
+    .pieza {
+      background: var(--tinta); border-radius: 24px;
+      aspect-ratio: 4 / 5; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pieza::before { content: ""; position: absolute; top: 0; right: 0; width: 22%; height: 46%; background: var(--violeta); }
+    .ua { position: relative; display: flex; align-items: flex-end; font-size: clamp(110px, 16vw, 170px); }
+    .ua svg { width: 1.101em; height: .522em; display: block; }
+    .ua .punto {
+      display: block; width: .19em; height: .19em; margin: 0 0 .014em .045em;
+      border-radius: .095em; background: var(--violeta);
+      animation: latir 3.2s ease-in-out .6s 2;
+    }
+    @keyframes latir {
+      0%   { width: .19em;  height: .19em; border-radius: .095em; opacity: 1; }
+      12%  { width: .22em;  height: .22em; border-radius: .11em; }
+      22%  { width: .19em;  height: .19em; border-radius: .095em; }
+      36%  { width: .075em; height: .78em; border-radius: .03em; opacity: 1; }
+      46%  { opacity: 1; }
+      47%  { opacity: 0; }
+      58%  { opacity: 0; }
+      59%  { opacity: 1; }
+      70%  { opacity: 1; }
+      71%  { opacity: 0; }
+      80%  { opacity: 0; }
+      81%  { width: .075em; height: .78em; border-radius: .03em; opacity: 1; }
+      100% { width: .19em;  height: .19em; border-radius: .095em; opacity: 1; }
+    }
+    @media (max-width: 820px) {
+      .heroe { padding: 56px 0 72px; }
+      .heroe .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .pieza { aspect-ratio: 16 / 10; }
+      .pieza::before { width: 14%; height: 52%; }
+    }
+
+    section { padding: 96px 0; }
+    @media (max-width: 700px) { section { padding: 64px 0; } }
+    .intro { font-size: 1.2rem; color: var(--tinta-suave); }
+    .nota { font-size: .98rem; color: var(--tinta-suave); font-style: italic; }
+
+    /* Por qué */
+    .por-que .grilla { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; border-top: 2px solid var(--tinta); padding-top: 48px; }
+    .por-que p { font-size: 1.2rem; margin: 0; }
+    @media (max-width: 760px) { .por-que .grilla { grid-template-columns: 1fr; gap: 8px; } }
+
+    /* Qué ofrezco: tres tarjetas */
+    .ofrezco { background: var(--papel-2); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+    .opciones { list-style: none; margin: 40px 0 32px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: opcion; }
+    .opcion { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 28px; counter-increment: opcion; position: relative; }
+    .opcion::after {
+      content: "0" counter(opcion); position: absolute; top: 28px; right: 28px;
+      font-size: .78rem; font-weight: 600; letter-spacing: .14em; color: var(--tinta-suave);
+    }
+    .opcion .icono {
+      width: 48px; height: 48px; border-radius: 14px; margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--tinta); color: var(--papel);
+    }
+    .opcion .icono svg { width: 24px; height: 24px; }
+    .opcion:first-child .icono { background: var(--violeta); color: var(--blanco); }
+    .opcion h3 { margin-bottom: 10px; }
+    .opcion p { color: var(--tinta-suave); margin: 0; }
+    @media (max-width: 900px) { .opciones { grid-template-columns: 1fr; } .opcion { padding: 24px; } .opcion::after { top: 24px; right: 24px; } }
+
+    /* Cómo trabajamos: línea de tiempo numerada */
+    .linea-tiempo { list-style: none; margin: 48px 0 40px; padding: 0; counter-reset: paso; max-width: 44rem; }
+    .linea-tiempo li { counter-increment: paso; position: relative; padding: 0 0 36px 72px; }
+    .linea-tiempo li::before {
+      content: counter(paso); position: absolute; left: 0; top: 0;
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--blanco); border: 2px solid var(--tinta);
+      font-weight: 600; font-size: 1.05rem;
+    }
+    .linea-tiempo li::after { /* la línea que une los pasos */
+      content: ""; position: absolute; left: 21px; top: 48px; bottom: 4px; width: 2px; background: var(--linea);
+    }
+    .linea-tiempo li:last-child { padding-bottom: 0; }
+    .linea-tiempo li:last-child::after { display: none; }
+    .linea-tiempo li:first-child::before { background: var(--violeta); border-color: var(--violeta); color: var(--blanco); }
+    .linea-tiempo h3 { padding-top: 9px; margin-bottom: 6px; }
+    .linea-tiempo p { color: var(--tinta-suave); margin: 0; }
+    @media (max-width: 560px) {
+      .linea-tiempo li { padding-left: 60px; }
+      .linea-tiempo li::before { width: 40px; height: 40px; }
+      .linea-tiempo li::after { left: 19px; top: 44px; }
+      .linea-tiempo h3 { padding-top: 7px; }
+    }
+    .destacado {
+      display: flex; gap: 14px; align-items: flex-start; max-width: 44rem;
+      padding: 20px 24px; border-radius: 18px; background: var(--blanco); border: 1px solid var(--linea);
+    }
+    .destacado::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: .55em; border-radius: 50%; background: var(--violeta); }
+    .destacado p { margin: 0; }
+
+    /* Dos columnas: necesito / después */
+    .detalles { padding-top: 0; }
+    .detalles .grilla { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .bloque { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 32px; }
+    .bloque h2 { font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 20px; }
+    .bloque p:last-child { margin-bottom: 0; }
+    .lista { margin: 0 0 24px; padding: 0; list-style: none; }
+    .lista li { padding-left: 22px; position: relative; margin-bottom: 10px; }
+    .lista li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 10px; height: 2px; background: var(--violeta); }
+    .bloque .aclaracion { font-size: .98rem; color: var(--tinta-suave); padding-top: 18px; border-top: 1px solid var(--linea); }
+    .bloque p + p { color: var(--tinta-suave); }
+    @media (max-width: 800px) { .detalles .grilla { grid-template-columns: 1fr; } .bloque { padding: 24px; } }
+
+    /* Cómo elijo */
+    .elijo { padding-top: 0; }
+    .elijo .grilla { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; border-top: 2px solid var(--tinta); padding-top: 48px; }
+    .elijo p { font-size: 1.2rem; margin: 0; }
+    @media (max-width: 760px) { .elijo .grilla { grid-template-columns: 1fr; gap: 8px; } }
+
+    /* Cómo postularse */
+    .postularse { background: var(--tinta); color: var(--papel); }
+    .postularse h2 { font-size: clamp(2.4rem, 6vw, 4.25rem); letter-spacing: -0.04em; line-height: 1; }
+    .postularse .intro { color: var(--tinta-suave-osc); }
+    .preguntas {
+      margin: 32px 0 40px; padding: 0; list-style: none; counter-reset: pregunta;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; max-width: 48rem;
+    }
+    .preguntas li { counter-increment: pregunta; display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--linea-osc); }
+    .preguntas li::before { content: counter(pregunta); flex: none; width: 1.4em; font-weight: 600; color: var(--violeta-texto-osc); }
+    @media (max-width: 640px) { .preguntas { grid-template-columns: 1fr; } }
+
+    footer { background: var(--tinta); color: var(--tinta-suave-osc); border-top: 1px solid var(--linea-osc); padding: 32px 0; font-size: .95rem; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer img { width: 104px; height: auto; }
+    footer p { margin: 0; }
+    footer a { color: var(--tinta-suave-osc); }
+    footer a:hover { color: var(--papel); }
+  </style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-abrir" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 9h19"/><path d="M6 6.5h.01M9 6.5h.01"/></g></symbol>
+    <symbol id="i-paleta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5a9.5 9.5 0 1 0 0 19c1.4 0 2-1 2-2 0-1.3-1-1.6-1-2.8 0-1 .8-1.7 1.8-1.7H17a4.5 4.5 0 0 0 4.5-4.5c0-4.4-4.3-8-9.5-8z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="15.5" cy="7.5" r="1"/></g></symbol>
+    <symbol id="i-grafico" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="encabezado">
+  <div class="wrap">
+    <a href="../" class="marca" aria-label="ualvarez, volver al inicio">
+      <img src="../assets/marca/ualvarez-logo.svg" alt="ualvarez" width="128" height="22">
+    </a>
+    <nav aria-label="Principal">
+      <a href="../#servicios">Servicios</a>
+      <a href="../#trabajos">Trabajos</a>
+      <a href="../#como-trabajo">Cómo trabajo</a>
+      <a href="../#sobre-mi">Sobre mí</a>
+      <a href="./" aria-current="page">ualvarez suma</a>
+      <a href="../#contacto" class="boton boton-violeta">Escribime</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="heroe">
+    <div class="wrap">
+      <div>
+        <span class="etiqueta">Proyecto social</span>
+        <h1>ualvarez <span>suma</span></h1>
+        <a class="boton boton-violeta" href="[PEGAR_LINK_GOOGLE_FORM]" target="_blank" rel="noopener noreferrer">
+          Postular mi organización<svg aria-hidden="true"><use href="#i-abrir"/></svg>
+        </a>
+      </div>
+      <div class="pieza" aria-hidden="true">
+        <div class="ua">
+          <svg viewBox="6.9 49.2 110.1 52.2"><path fill="#F3EDE4" d="M26.20 100.80L26.20 100.80Q20.50 100.800 16.10 98.25Q11.70 95.70 9.30 91.05Q6.90 86.40 6.90 80.20L6.90 80.20L6.90 50.60L18.30 50.60L18.30 79.30Q18.30 85.30 21.25 88.20Q24.20 91.10 29.60 91.10L29.60 91.10Q35.70 91.10 39.25 87.10Q42.80 83.10 42.80 75.60L42.80 75.60L42.80 50.60L54.20 50.60L54.20 100L43 100L43 93.10L41.30 93.10Q40 95.80 36.55 98.30Q33.10 100.80 26.20 100.80ZM84.10 101.40L84.10 101.40Q78.90 101.40 74.70 99.55Q70.50 97.70 68.05 94.20Q65.60 90.70 65.60 85.60L65.60 85.60Q65.60 80.600 68.050 77.20Q70.50 73.80 74.80 72.05Q79.10 70.30 84.60 70.30L84.60 70.30L98.90 70.30L98.90 67.30Q98.90 63.40 96.50 60.95Q94.10 58.50 89 58.50L89 58.50Q84 58.50 81.45 60.85Q78.90 63.20 78.10 66.90L78.10 66.90L67.50 63.40Q68.70 59.50 71.35 56.30Q74 53.10 78.40 51.15Q82.80 49.20 89.20 49.20L89.20 49.20Q98.90 49.20 104.45 54.05Q110 58.90 110 68.10L110 68.10L110 87.50Q110 90.50 112.80 90.50L112.80 90.50L117 90.50L117 100L108.90 100Q105.30 100 103 98.20Q100.70 96.40 100.70 93.30L100.70 93.30L100.70 93.10L99 93.10Q98.40 94.50 96.90 96.50Q95.40 98.50 92.350 99.95Q89.30 101.40 84.10 101.40ZM86 92L86 92Q91.70 92 95.30 88.75Q98.90 85.50 98.90 80L98.90 80L98.90 79L85.30 79Q81.600 79 79.30 80.60Q77 82.20 77 85.30L77 85.30Q77 88.30 79.40 90.150Q81.80 92 86 92Z"/></svg>
+          <span class="punto"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="por-que" id="por-que">
+    <div class="wrap"><div class="grilla">
+      <div>
+        <h2>Por qué</h2>
+      </div>
+      <div>
+        <p>Desde chico participé en voluntariados y siempre creí que lo que uno sabe hacer vale más cuando se comparte. Por eso nace ualvarez suma: cada semestre elijo una organización sin fines de lucro, como un comedor, un merendero o un hogar de ancianos, y le armo gratis su página web o una herramienta simple para ordenar sus cuentas. Porque todos merecen estar presentes y organizados, no solo quienes pueden pagarlo.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="ofrezco" id="que-ofrezco">
+    <div class="wrap">
+      <h2>Qué ofrezco</h2>
+      <p class="intro">Cada organización elige <strong>una</strong> de estas opciones:</p>
+      <ol class="opciones">
+        <li class="opcion">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-web"/></svg></span>
+          <h3>Web sencilla</h3>
+          <p>Una sola página con su historia, misión, visión y redes sociales, con SEO básico para que la encuentren en Google. La armo en una herramienta que la organización puede editar sola, sin saber programar.</p>
+        </li>
+        <li class="opcion">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-paleta"/></svg></span>
+          <h3>Identidad y redes</h3>
+          <p>Un manual de marca básico (logo, colores y tipografías) y una reunión de 1 hora para aprender a aplicarlo en sus redes sociales.</p>
+        </li>
+        <li class="opcion">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-grafico"/></svg></span>
+          <h3>Orden de cuentas</h3>
+          <p>Un formulario conectado a una planilla y un dashboard simple para ver ingresos y gastos. Todo queda en la cuenta de Google de la organización: yo no guardo ni administro sus datos.</p>
+        </li>
+      </ol>
+      <p class="nota">Uso herramientas gratuitas siempre que sea posible. Si hiciera falta algún costo externo, como un dominio o hosting, lo cubre la organización.</p>
+    </div>
+  </section>
+
+  <section id="como-trabajamos">
+    <div class="wrap">
+      <h2>Cómo trabajamos</h2>
+      <ol class="linea-tiempo">
+        <li>
+          <h3>Reunión inicial (1 hora)</h3>
+          <p>Conocemos a la organización y definimos qué va a incluir.</p>
+        </li>
+        <li>
+          <h3>Material</h3>
+          <p>La organización me envía todo lo necesario (ver abajo).</p>
+        </li>
+        <li>
+          <h3>Armado</h3>
+          <p>Tengo una primera versión el sábado siguiente a recibir el material completo.</p>
+        </li>
+        <li>
+          <h3>Una ronda de ajustes</h3>
+          <p>La organización revisa y me envía todos los cambios juntos, en un solo mensaje.</p>
+        </li>
+        <li>
+          <h3>Entrega y capacitación (1 hora)</h3>
+          <p>Les muestro cómo usar y editar lo que armamos.</p>
+        </li>
+      </ol>
+      <div class="destacado">
+        <p>Trabajo en ualvarez suma los sábados, así que el proyecto completo se resuelve en 3 o 4 semanas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detalles">
+    <div class="wrap"><div class="grilla">
+      <div class="bloque" id="que-necesito">
+        <h2>Qué necesito de la organización</h2>
+        <ul class="lista">
+          <li>Una persona de contacto que responda los mensajes en 2 o 3 días.</li>
+          <li>Textos: historia, misión, visión y a quién ayudan.</li>
+          <li>Fotos propias y logo, si tienen.</li>
+          <li>Links a sus redes sociales.</li>
+          <li>Una cuenta de Google de la organización (no personal), donde va a quedar todo.</li>
+        </ul>
+        <p class="aclaracion">Si el material no llega dentro de los 30 días, el proyecto se pausa y el lugar pasa a otra organización.</p>
+      </div>
+      <div class="bloque" id="despues-de-la-entrega">
+        <h2>Después de la entrega</h2>
+        <p>Todo queda a nombre de la organización: cuentas, accesos y archivos. Además, les dejo una guía corta con los pasos para editar lo básico.</p>
+        <p>Durante los 7 días posteriores a la entrega corrijo cualquier error en lo que armé. Después de ese plazo el proyecto queda cerrado y la organización lo mantiene por su cuenta con lo que aprendió en la capacitación. Los cambios nuevos o pedidos adicionales no están incluidos, pero la organización puede volver a postularse en otro semestre.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="elijo" id="como-elijo">
+    <div class="wrap"><div class="grilla">
+      <div>
+        <h2>Cómo elijo</h2>
+      </div>
+      <div>
+        <p>Priorizo organizaciones de Rosario y alrededores, con impacto directo en su comunidad y que hoy no tengan presencia digital o herramientas para ordenarse.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="postularse oscuro" id="postularse">
+    <div class="wrap">
+      <h2>Cómo postularse</h2>
+      <p class="intro">Cada semestre elijo una organización entre las postulaciones. Para participar, completá el formulario. Te va a pedir:</p>
+      <ol class="preguntas">
+        <li>Nombre de la organización</li>
+        <li>Ciudad o zona</li>
+        <li>¿Qué hacen?</li>
+        <li>¿A quién ayudan?</li>
+        <li>¿Cuál de las tres opciones necesitan?</li>
+        <li>Links a sus redes o web actual (si tienen)</li>
+        <li>¿Por qué lo necesitan ahora? (opcional)</li>
+        <li>Contacto (nombre, teléfono o email)</li>
+      </ol>
+      <a class="boton boton-violeta" href="[PEGAR_LINK_GOOGLE_FORM]" target="_blank" rel="noopener noreferrer">
+        Postular mi organización<svg aria-hidden="true"><use href="#i-abrir"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="oscuro">
+  <div class="wrap">
+    <img src="../assets/marca/ualvarez-logo-claro.svg" alt="ualvarez" width="104" height="18">
+    <p><a href="../">Inicio</a> · <a href="./">ualvarez suma</a> · <a href="../privacidad.html">Política de privacidad</a> · © 2026 · Rosario, Argentina</p>
+  </div>
+</footer>
+
+</body>
+</html>
