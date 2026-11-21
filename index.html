@@ -236,6 +236,14 @@
     .sobre-mi .grilla { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; border-top: 2px solid var(--tinta); padding-top: 48px; }
     .sobre-mi p { font-size: 1.2rem; }
     .sobre-mi p + p { color: var(--tinta-suave); font-size: 1.05rem; }
+    .herramientas { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--linea); }
+    .herramientas .etiqueta { margin-bottom: 14px; }
+    .herramientas dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; align-items: baseline; }
+    .herramientas dt { font-size: .9rem; color: var(--tinta-suave); }
+    .herramientas dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .herramientas dd span { font-size: .88rem; line-height: 1; padding: 6px 11px; border: 1px solid var(--linea); border-radius: 999px; background: var(--blanco); }
+    .sobre-mi .disponible { margin: 20px 0 0; font-size: .95rem; }
+    @media (max-width: 560px) { .herramientas dl { grid-template-columns: 1fr; gap: 6px; } .herramientas dd { margin-bottom: 10px; } }
     @media (max-width: 760px) { .sobre-mi .grilla { grid-template-columns: 1fr; gap: 8px; } }
 
     /* Contacto */
@@ -454,6 +462,20 @@
         <p>Soy consultor en transformación digital. Encaro cada proyecto como un proyecto de software: primero entiendo el problema, después diseño la solución y recién ahí la construyo.</p>
         <p>Del análisis funcional traigo el relevamiento de requerimientos, el modelado de procesos y la documentación clara. De la ingeniería de software, el diseño de la solución, el desarrollo y las pruebas antes de entregar.</p>
         <p>Trabajás directamente conmigo, de la primera charla a la entrega, sin intermediarios.</p>
+        <div class="herramientas">
+          <span class="etiqueta">Con qué trabajo</span>
+          <dl>
+            <dt>Procesos</dt>
+            <dd><span>Bizagi</span><span>draw.io</span><span>BPMN</span></dd>
+            <dt>Gestión</dt>
+            <dd><span>Jira</span><span>Trello</span><span>Confluence</span></dd>
+            <dt>Requerimientos</dt>
+            <dd><span>Historias de usuario</span><span>Gherkin</span><span>Figma</span></dd>
+            <dt>Datos e IA</dt>
+            <dd><span>SQL</span><span>Google Sheets</span><span>Agentes de IA</span></dd>
+          </dl>
+          <p class="disponible">Disponible para proyectos de análisis funcional como servicio externo: por proyecto o por bolsa de horas.</p>
+        </div>
       </div>
     </div></div>
   </section>
