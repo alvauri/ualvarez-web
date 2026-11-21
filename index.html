@@ -210,6 +210,23 @@
       .pasos li { padding: 24px 0; border-top: 1px solid var(--linea); }
     }
 
+    /* Otros servicios: dashboards, consultoría e ingeniería */
+    .servicios { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .servicio { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; }
+    .servicio .icono {
+      width: 48px; height: 48px; border-radius: 14px; margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--tinta); color: var(--papel);
+    }
+    .servicio .icono svg { width: 24px; height: 24px; }
+    .servicio:first-child .icono { background: var(--violeta); color: var(--blanco); }
+    .servicio h3 { margin-bottom: 10px; }
+    .servicio p { color: var(--tinta-suave); margin: 0 0 18px; }
+    .servicio ul { margin: auto 0 0; padding: 18px 0 0; list-style: none; border-top: 1px solid var(--linea); font-size: .98rem; }
+    .servicio li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+    .servicio li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--violeta); }
+    @media (max-width: 900px) { .servicios { grid-template-columns: 1fr; } .servicio { padding: 24px; } }
+
     /* Sobre mí */
     .sobre-mi { padding-top: 0; }
     .sobre-mi .grilla { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; border-top: 2px solid var(--tinta); padding-top: 48px; }
@@ -242,6 +259,9 @@
   <defs>
     <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></g></symbol>
     <symbol id="i-abrir" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g></symbol>
+    <symbol id="i-tablero" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></g></symbol>
+    <symbol id="i-brujula" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></g></symbol>
+    <symbol id="i-engranaje" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></g></symbol>
   </defs>
 </svg>
 
@@ -253,6 +273,7 @@
     <nav aria-label="Principal">
       <a href="#trabajos">Trabajos</a>
       <a href="#como-trabajo">Cómo trabajo</a>
+      <a href="#servicios">Servicios</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#contacto" class="boton boton-violeta">Escribime</a>
     </nav>
@@ -374,6 +395,46 @@
           <p>Lo pongo online con tu dominio y te enseño a actualizarlo.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap">
+      <span class="etiqueta">Otros servicios</span>
+      <h2>Más que una web: datos, procesos y tecnología.</h2>
+      <p class="intro">Además de sitios, ayudo a negocios a ordenar su información, decidir con números y resolver problemas técnicos.</p>
+      <ul class="servicios">
+        <li class="servicio">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-tablero"/></svg></span>
+          <h3>Dashboards y reportes</h3>
+          <p>Paso tus planillas y sistemas a un tablero claro, con lo que necesitás medir a simple vista: ventas, stock, clientes o tiempos.</p>
+          <ul>
+            <li>Indicadores clave en una sola pantalla</li>
+            <li>Conectado a Excel, Google Sheets o tu sistema</li>
+            <li>Se actualiza solo y se ve en el celular</li>
+          </ul>
+        </li>
+        <li class="servicio">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-brujula"/></svg></span>
+          <h3>Consultoría tecnológica</h3>
+          <p>Si no sabés por dónde empezar, te ayudo a elegir herramientas, ordenar procesos y armar un plan realista para tu negocio.</p>
+          <ul>
+            <li>Diagnóstico de cómo trabajás hoy</li>
+            <li>Recomendaciones sin atarte a ninguna marca</li>
+            <li>Plan por etapas con costos claros</li>
+          </ul>
+        </li>
+        <li class="servicio">
+          <span class="icono" aria-hidden="true"><svg><use href="#i-engranaje"/></svg></span>
+          <h3>Ingeniería y automatización</h3>
+          <p>Soluciones a medida cuando lo estándar no alcanza: menos tareas repetitivas, sistemas que se hablan entre sí y datos ordenados.</p>
+          <ul>
+            <li>Automatización de tareas y reportes</li>
+            <li>Integraciones entre sistemas y APIs</li>
+            <li>Bases de datos y servicios en la nube</li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </section>
 
