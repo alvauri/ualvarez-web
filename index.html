@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
+  <script>document.documentElement.classList.add('js');</script>
   <style>
     /* Paleta del manual de marca: dos neutros cálidos y un violeta */
     :root {
@@ -121,7 +122,11 @@
     .menu-boton[aria-expanded="true"] .cerrar { display: block; }
     @media (max-width: 760px) {
       .encabezado nav { gap: 8px; }
-      .menu { display: none; }
+      .js .menu { display: none; }
+      html:not(.js) .encabezado .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; padding-bottom: 12px; }
+      html:not(.js) .encabezado nav { flex-wrap: wrap; gap: 4px 16px; }
+      html:not(.js) .menu { flex-wrap: wrap; gap: 4px 16px; }
+      html:not(.js) .menu a { display: inline-flex; align-items: center; min-height: 44px; }
       .js .menu-boton { display: inline-flex; }
       .js .menu.abierto {
         display: flex; flex-direction: column; align-items: stretch; gap: 0;
@@ -135,7 +140,7 @@
       }
       .js .menu.abierto a:last-child { border-bottom: 0; }
     }
-    @media (max-width: 380px) {
+    @media (max-width: 400px) {
       .marca img { width: 100px; }
       .menu-boton { width: 44px; padding: 0; justify-content: center; }
       .menu-texto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -567,7 +572,6 @@
 
 <script>
   // Menú para celular
-  document.documentElement.classList.add('js');
   const menuBoton = document.querySelector('.menu-boton');
   const menu = document.getElementById('menu');
   const abrirMenu = (abrir) => {
@@ -575,14 +579,22 @@
     menu.classList.toggle('abierto', abrir);
   };
   menuBoton.addEventListener('click', () => abrirMenu(menuBoton.getAttribute('aria-expanded') !== 'true'));
-  menu.addEventListener('click', (e) => { if (e.target.closest('a')) abrirMenu(false); });
+  // Cualquier enlace del encabezado (secciones, logo o Escribime) cierra el menú
+  document.querySelector('.encabezado').addEventListener('click', (e) => { if (e.target.closest('a')) abrirMenu(false); });
+  // Si el foco del teclado sale del encabezado, se cierra
+  document.querySelector('.encabezado').addEventListener('focusout', (e) => {
+    if (e.relatedTarget && !e.relatedTarget.closest('.encabezado')) abrirMenu(false);
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('abierto')) { abrirMenu(false); menuBoton.focus(); }
   });
   document.addEventListener('click', (e) => {
     if (menu.classList.contains('abierto') && !e.target.closest('.encabezado')) abrirMenu(false);
   });
-  matchMedia('(min-width: 761px)').addEventListener('change', (e) => { if (e.matches) abrirMenu(false); });
+  const escritorio = matchMedia('(min-width: 761px)');
+  const alPasarAEscritorio = (e) => { if (e.matches) abrirMenu(false); };
+  if (escritorio.addEventListener) escritorio.addEventListener('change', alPasarAEscritorio);
+  else escritorio.addListener(alPasarAEscritorio); // Safari anterior a 14
 
   const EMAIL = 'contacto@ualvarez.com.ar';
   const aviso = document.getElementById('aviso');
