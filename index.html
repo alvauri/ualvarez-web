@@ -208,6 +208,11 @@
     }
     .trabajo h3 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); letter-spacing: -0.035em; line-height: 1.05; }
     .trabajo .rubro { margin: 10px 0 0; color: var(--tinta-suave); font-size: 1rem; }
+    .trabajo .captura {
+      display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
+      margin-top: 24px; border-radius: 14px; border: 1px solid var(--linea); background: var(--blanco);
+      box-shadow: 0 12px 32px rgba(21, 18, 31, .08);
+    }
     .trabajo .demo { display: inline-block; margin: 14px 0 0; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; border: 1px solid var(--linea); border-radius: 999px; color: var(--tinta-suave); }
     .trabajo .detalle p { margin-bottom: 14px; }
     .trabajo ul { margin: 0 0 20px; padding: 0; list-style: none; color: var(--tinta-suave); }
@@ -413,6 +418,8 @@
           <div>
             <h3>Calzados Pro</h3>
             <p class="rubro">Calzado de cuero para mozos y gastronómicos</p>
+            <img class="captura" src="./assets/trabajos/calzadospro.webp" width="960" height="600" loading="lazy"
+              alt="Inicio del sitio de Calzados Pro: el título «Zapatos de cuero para quien trabaja de pie», botones para ver modelos y escribir por WhatsApp, y una ilustración de una moza y un mozo sosteniendo zapatos.">
           </div>
           <div class="detalle">
             <p>Un comercio que vendía solo por encargo y necesitaba mostrar sus modelos en internet. Armamos un catálogo que carga rápido en el celular y en el que cada producto lleva directo a una consulta por WhatsApp.</p>
@@ -431,6 +438,8 @@
             <h3>Portal de clientes</h3>
             <p class="rubro">Área privada para empresas de servicios</p>
             <span class="demo">Demo</span>
+            <img class="captura" src="./assets/trabajos/portal-clientes.webp" width="960" height="600" loading="lazy"
+              alt="Pantalla de ingreso del portal de clientes: el logo de ualvarez, pestañas para ingresar o crear una cuenta y campos de correo y contraseña.">
           </div>
           <div class="detalle">
             <p>Un espacio donde cada cliente entra con su propia cuenta y consulta el estado de su servicio, sin tener que preguntar por teléfono o por mail.</p>
