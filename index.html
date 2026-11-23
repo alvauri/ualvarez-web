@@ -218,7 +218,9 @@
     .servicios { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: servicio; }
     .servicio { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; counter-increment: servicio; position: relative; }
     .servicio::after {
-      content: "0" counter(servicio) / ""; position: absolute; top: 28px; right: 28px;
+      content: counter(servicio, decimal-leading-zero);
+      content: counter(servicio, decimal-leading-zero) / "";
+      position: absolute; top: 28px; right: 28px;
       font-size: .78rem; font-weight: 600; letter-spacing: .14em; color: var(--tinta-suave);
     }
     .servicio .icono {
@@ -241,13 +243,12 @@
     .sobre-mi p { font-size: 1.2rem; }
     .sobre-mi p + p { color: var(--tinta-suave); font-size: 1.05rem; }
     .herramientas { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--linea); }
-    .herramientas .etiqueta { margin-bottom: 14px; }
+    .herramientas .etiqueta { margin-bottom: 14px; line-height: 1.6; }
     .herramientas dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; align-items: baseline; }
     .herramientas dt { font-size: .9rem; color: var(--tinta-suave); }
     .herramientas dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
     .herramientas dd span { font-size: .88rem; line-height: 1; padding: 6px 11px; border: 1px solid var(--linea); border-radius: 999px; background: var(--blanco); }
     .sobre-mi .disponible { margin: 20px 0 0; font-size: .95rem; }
-    .herramientas h3.etiqueta { font-size: .78rem; letter-spacing: .14em; line-height: 1.6; }
     .herramientas > p { font-size: 1rem; color: var(--tinta-suave); margin: 0 0 20px; }
     @media (max-width: 560px) { .herramientas dl { grid-template-columns: 1fr; gap: 6px; } .herramientas dd { margin-bottom: 10px; } }
     @media (max-width: 760px) { .sobre-mi .grilla { grid-template-columns: 1fr; gap: 8px; } }
@@ -516,14 +517,16 @@
 <script>
   const EMAIL = 'contacto@ualvarez.com.ar';
   const aviso = document.getElementById('aviso');
+  let temporizador;
   document.getElementById('copiar').addEventListener('click', async () => {
+    clearTimeout(temporizador);
     try {
       await navigator.clipboard.writeText(EMAIL);
       aviso.textContent = 'Email copiado.';
     } catch {
       aviso.textContent = 'No se pudo copiar. El email es ' + EMAIL;
     }
-    setTimeout(() => { aviso.textContent = ''; }, 4000);
+    temporizador = setTimeout(() => { aviso.textContent = ''; }, 4000);
   });
 </script>
 
