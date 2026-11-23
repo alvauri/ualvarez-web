@@ -10,7 +10,8 @@ Netlify publica `main` en https://www.ualvarez.com.ar (el dominio sin `www` redi
 
 ## Cómo verlo y probarlo
 
-- No hay build, linter ni tests en el repo. Para ver la página alcanza con abrir `index.html` o servir la carpeta (`python3 -m http.server`).
+- No hay build ni linter. Para ver la página alcanza con abrir `index.html` o servir la carpeta (`python3 -m http.server`).
+- Después de cualquier cambio, correr la skill `verificar-sitio` (`node .claude/skills/verificar-sitio/scripts/verificar.js`, con `--comparar origin/main` si cambia cómo se ve). Revisa accesibilidad, CSP, desborde, objetivos táctiles, el menú para celular y «Copiar el email».
 - Las cabeceras de `_headers` (incluida la Content-Security-Policy) solo se aplican en Netlify: abriendo los archivos en local no se prueban. Para probar la CSP hay que servir la carpeta con un servidor que agregue esas cabeceras.
 - En producción aparece un aviso de CSP por un script inline que inyecta Netlify (`/.netlify/scripts/hud`). No es del sitio; no hay que aflojar la política por eso.
 
