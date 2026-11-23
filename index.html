@@ -61,6 +61,9 @@
     img { display: block; }
     :focus-visible { outline: 3px solid var(--violeta-texto); outline-offset: 3px; border-radius: 4px; }
     .oscuro :focus-visible { outline-color: var(--violeta-texto-osc); }
+    .oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .saltar { position: absolute; left: 16px; top: -100px; z-index: 100; padding: 12px 18px; border-radius: 999px; background: var(--tinta); color: var(--papel); font-weight: 600; text-decoration: none; }
+    .saltar:focus { top: 12px; }
 
     .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
     @media (max-width: 560px) { .wrap { padding: 0 16px; } }
@@ -99,12 +102,12 @@
       border-bottom: 1px solid var(--linea);
     }
     .encabezado .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
-    .marca { display: block; padding: 6px 0; }
+    .marca { display: block; padding: 11px 0; }
     .marca img { width: 128px; height: auto; }
     .encabezado nav { display: flex; align-items: center; gap: 28px; }
     .encabezado nav a:not(.boton) { font-size: .95rem; color: var(--tinta-suave); text-decoration: none; }
     .encabezado nav a:not(.boton):hover { color: var(--tinta); }
-    .encabezado .boton { padding: 10px 18px; font-size: .92rem; }
+    .encabezado .boton { padding: 10px 18px; min-height: 44px; font-size: .92rem; }
     @media (max-width: 760px) {
       .encabezado nav a:not(.boton) { display: none; }
     }
@@ -139,7 +142,7 @@
     .ua .punto {
       display: block; width: .19em; height: .19em; margin: 0 0 .014em .045em;
       border-radius: .095em; background: var(--violeta);
-      animation: latir 3.2s ease-in-out .6s 2;
+      animation: latir 3.2s ease-in-out .6s 1;
     }
     @keyframes latir {
       0%   { width: .19em;  height: .19em; border-radius: .095em; opacity: 1; }
@@ -182,7 +185,7 @@
     .trabajo li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--tinta-suave); }
     .ver {
       display: inline-flex; align-items: center; gap: 8px;
-      font-weight: 600; color: var(--violeta-texto);
+      font-weight: 600; color: var(--violeta-texto); padding: 10px 0;
       text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px;
     }
     .ver:hover { color: var(--tinta); }
@@ -215,7 +218,7 @@
     .servicios { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: servicio; }
     .servicio { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; counter-increment: servicio; position: relative; }
     .servicio::after {
-      content: "0" counter(servicio); position: absolute; top: 28px; right: 28px;
+      content: "0" counter(servicio) / ""; position: absolute; top: 28px; right: 28px;
       font-size: .78rem; font-weight: 600; letter-spacing: .14em; color: var(--tinta-suave);
     }
     .servicio .icono {
@@ -244,7 +247,7 @@
     .herramientas dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
     .herramientas dd span { font-size: .88rem; line-height: 1; padding: 6px 11px; border: 1px solid var(--linea); border-radius: 999px; background: var(--blanco); }
     .sobre-mi .disponible { margin: 20px 0 0; font-size: .95rem; }
-    .herramientas h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .herramientas h3.etiqueta { font-size: .78rem; letter-spacing: .14em; line-height: 1.6; }
     .herramientas > p { font-size: 1rem; color: var(--tinta-suave); margin: 0 0 20px; }
     @media (max-width: 560px) { .herramientas dl { grid-template-columns: 1fr; gap: 6px; } .herramientas dd { margin-bottom: 10px; } }
     @media (max-width: 760px) { .sobre-mi .grilla { grid-template-columns: 1fr; gap: 8px; } }
@@ -257,7 +260,7 @@
     .contacto .directo { margin: 20px 0 0; font-size: 1.05rem; color: var(--papel); }
     .contacto .email { margin: 20px 0 0; font-size: .95rem; color: var(--tinta-suave-osc); }
     .copiar {
-      margin-top: 0; background: none; border: 0; padding: 4px 0; cursor: pointer;
+      margin-top: 0; background: none; border: 0; padding: 0; min-height: 44px; cursor: pointer;
       font: inherit; font-size: .95rem; color: var(--tinta-suave-osc);
       text-decoration: underline; text-underline-offset: 3px;
     }
@@ -273,6 +276,7 @@
   </style>
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -299,7 +303,7 @@
   </div>
 </header>
 
-<main>
+<main id="contenido">
   <section class="heroe">
     <div class="wrap">
       <div>
@@ -380,7 +384,7 @@
               <li>Dominio propio .com.ar y conexión segura</li>
             </ul>
             <a class="ver" href="https://www.calzadospro.com.ar" target="_blank" rel="noopener noreferrer">
-              Ver calzadospro.com.ar<svg aria-hidden="true"><use href="#i-abrir"/></svg>
+              Ver calzadospro.com.ar<span class="oculto"> (se abre en otra pestaña)</span><svg aria-hidden="true"><use href="#i-abrir"/></svg>
             </a>
           </div>
         </li>
@@ -398,7 +402,7 @@
               <li>Páginas protegidas: solo entra quien tiene cuenta</li>
             </ul>
             <a class="ver" href="https://ualvarez-portal.netlify.app" target="_blank" rel="noopener noreferrer">
-              Probar la demo<svg aria-hidden="true"><use href="#i-abrir"/></svg>
+              Probar la demo<span class="oculto"> (se abre en otra pestaña)</span><svg aria-hidden="true"><use href="#i-abrir"/></svg>
             </a>
           </div>
         </li>
@@ -467,7 +471,7 @@
       <div>
         <p>Antes de construir algo, entiendo cómo funciona tu negocio. Después diseño la solución, la armo y la pruebo antes de entregártela.</p>
         <div class="herramientas">
-          <span class="etiqueta">Para empresas y equipos de software</span>
+          <h3 class="etiqueta">Para empresas y equipos de software</h3>
           <p>Del análisis funcional traigo el relevamiento de requerimientos, el modelado de procesos y la documentación clara. De la ingeniería de software, el diseño de la solución, el desarrollo y las pruebas antes de entregar.</p>
           <dl>
             <dt>Procesos</dt>

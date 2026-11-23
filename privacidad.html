@@ -49,6 +49,8 @@
     img { display: block; }
     :focus-visible { outline: 3px solid var(--violeta-texto); outline-offset: 3px; border-radius: 4px; }
     .oscuro :focus-visible { outline-color: var(--violeta-texto-osc); }
+    .saltar { position: absolute; left: 16px; top: -100px; z-index: 100; padding: 12px 18px; border-radius: 999px; background: var(--tinta); color: var(--papel); font-weight: 600; text-decoration: none; }
+    .saltar:focus { top: 12px; }
 
     .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
     @media (max-width: 560px) { .wrap { padding: 0 16px; } }
@@ -64,7 +66,7 @@
     }
 
     .boton {
-      display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 999px;
+      display: inline-flex; align-items: center; padding: 10px 18px; min-height: 44px; border-radius: 999px;
       font-weight: 600; font-size: .92rem; line-height: 1; text-decoration: none;
       background: var(--violeta); color: var(--blanco); transition: background-color .15s ease;
     }
@@ -72,7 +74,7 @@
 
     .encabezado { position: sticky; top: 0; z-index: 50; background: var(--papel); border-bottom: 1px solid var(--linea); }
     .encabezado .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
-    .marca { display: block; padding: 6px 0; }
+    .marca { display: block; padding: 11px 0; }
     .marca img { width: 128px; height: auto; }
 
     main { padding: 72px 0 96px; }
@@ -99,6 +101,7 @@
   </style>
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <header class="encabezado">
   <div class="wrap">
@@ -109,7 +112,7 @@
   </div>
 </header>
 
-<main>
+<main id="contenido">
   <div class="wrap">
     <span class="etiqueta">Legal</span>
     <h1>Política de privacidad</h1>
