@@ -203,6 +203,9 @@ async function capturar(navegador, base, carpeta, dir = RAIZ) {
     const pagina = await contexto.newPage();
     await pagina.goto(`${base}/${archivo}`);
     await pagina.addStyleTag({ content: SIN_ANIMACION });
+    // Esperar a que carguen las fuentes: si no, el texto puede salir con la fuente de reemplazo
+    // en una captura y con Space Grotesk en la otra, y la comparación marca diferencias falsas.
+    await pagina.evaluate(() => document.fonts.ready);
     await pagina.waitForTimeout(400);
     await pagina.screenshot({ path: path.join(carpeta, `${archivo.replace('.html', '')}-${ancho}.png`), fullPage: true });
     await contexto.close();
@@ -220,11 +223,16 @@ for f in sorted(os.listdir(d)):
     if not os.path.exists(os.path.join(a, f)):
         out.append({"f": f, "estado": "nueva"}); continue
     ia = Image.open(os.path.join(a, f)).convert("RGB"); id_ = Image.open(os.path.join(d, f)).convert("RGB")
-    caja = ImageChops.difference(ia, id_).getbbox() if ia.size == id_.size else "tamaño"
+    if ia.size == id_.size:
+        dif = ImageChops.difference(ia, id_).convert("L").point(lambda v: 255 if v > 40 else 0)
+        caja = dif.getbbox()
+        pct = round(100 * dif.histogram()[255] / (ia.width * ia.height), 2)
+    else:
+        caja, pct = "tamaño", None
     h = max(ia.height, id_.height); w = ia.width
     lado = Image.new("RGB", (w * 2 + 20, h), "white"); lado.paste(ia, (0, 0)); lado.paste(id_, (w + 20, 0))
     lado.save(os.path.join(s, "lado-" + f))
-    out.append({"f": f, "estado": "igual" if caja is None else "distinta", "alto": [ia.height, id_.height]})
+    out.append({"f": f, "estado": "igual" if caja is None else "distinta", "alto": [ia.height, id_.height], "pct": pct})
 print(json.dumps(out))
 `;
   try {
@@ -305,7 +313,8 @@ async function verificarProduccion(navegador) {
   if (comparacion) {
     lineas.push('', `## Capturas contra ${comparacion.rama}`, `Carpeta: ${SALIDA}`);
     if (comparacion.filas) for (const c of comparacion.filas) {
-      lineas.push(`- ${c.f}: ${c.estado}${c.alto && c.alto[0] !== c.alto[1] ? ` (alto ${c.alto[0]} → ${c.alto[1]} px)` : ''}`);
+      const detalle = c.alto && c.alto[0] !== c.alto[1] ? ` (alto ${c.alto[0]} → ${c.alto[1]} px)` : (c.estado === 'distinta' && c.pct !== null ? ` (${c.pct} % de los píxeles)` : '');
+      lineas.push(`- ${c.f}: ${c.estado}${detalle}`);
     }
     else lineas.push('- No se pudieron comparar (falta Python con Pillow); las capturas quedaron en las carpetas antes/ y despues/.');
     lineas.push('Las imágenes lado-*.png muestran antes (izquierda) y después (derecha).');
