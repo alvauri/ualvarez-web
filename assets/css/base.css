@@ -131,6 +131,8 @@ h3 { font-size: var(--texto-h3); line-height: 1.2; letter-spacing: -0.02em; }
 .boton-principal:hover { background: var(--violeta-hover); }
 .boton-secundario { color: var(--tinta); border-color: var(--tinta); background: transparent; }
 .boton-secundario:hover { background: var(--tinta); color: var(--papel); }
+.oscuro .boton-secundario { color: var(--papel); border-color: var(--papel); }
+.oscuro .boton-secundario:hover { background: var(--papel); color: var(--tinta); }
 .boton-chico { padding: 10px 18px; font-size: var(--texto-chico); }
 @media (max-width: 400px) { .boton-chico { padding: 10px 14px; } }
 
