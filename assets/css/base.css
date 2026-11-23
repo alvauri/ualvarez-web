@@ -1,0 +1,154 @@
+/* ualvarez · estilos compartidos
+   Variables de marca y componentes que usan todas las páginas.
+   Cada página suma solo sus estilos propios en un <style> después de este archivo.
+
+   Puntos de corte (las variables no funcionan dentro de @media, por eso van anotados acá):
+     400px  celular chico
+     560px  celular
+     760px  tablet: el menú pasa a desplegable y las grillas a una columna
+     900px  tablet grande: el hero y los servicios pasan a una columna
+*/
+
+:root {
+  /* Colores — dos neutros cálidos y un violeta */
+  --papel: #F3EDE4;            /* fondo general */
+  --papel-claro: #FAF7F2;      /* fondo de sección alternativa */
+  --blanco: #FFFFFF;           /* tarjetas y chips */
+  --tinta: #15121F;            /* texto principal y fondos oscuros */
+  --tinta-suave: #6E6355;      /* texto secundario sobre claro (5,0:1) */
+  --tinta-suave-osc: #B8AC9C;  /* texto secundario sobre oscuro (8,3:1) */
+  --violeta: #6D4AFF;          /* el punto, el cursor y los botones principales */
+  --violeta-hover: #5B3BE8;    /* hover del botón principal (mismo valor que --violeta-texto) */
+  --violeta-texto: #5B3BE8;    /* enlaces y foco sobre claro (5,6:1) */
+  --violeta-texto-osc: #8B70FF;/* enlaces y foco sobre oscuro (5,2:1) */
+  --linea: #E4DBCD;            /* bordes y separadores sobre claro */
+  --linea-osc: #2E2840;        /* bordes y separadores sobre oscuro */
+
+  /* Tipografía */
+  --fuente: 'Space Grotesk', system-ui, sans-serif;
+  --texto-etiqueta: .78rem;                      /* etiquetas en mayúsculas */
+  --texto-chico: .92rem;                         /* botones, notas, chips, pie */
+  --texto-base: 1.0625rem;                       /* texto general */
+  --texto-intro: 1.2rem;                         /* bajadas e intros */
+  --texto-h3: 1.3rem;                            /* títulos de tarjeta */
+  --texto-subtitulo: clamp(1.8rem, 3.4vw, 2.4rem); /* nombres de proyecto */
+  --texto-h2: clamp(2rem, 4.4vw, 3rem);          /* títulos de sección */
+  --texto-display: clamp(2.4rem, 6vw, 4.2rem);   /* hero y contacto */
+
+  /* Espaciado — escala de 4 en 4 y de 8 en 8 */
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;
+  --e-4: 16px;
+  --e-5: 24px;
+  --e-6: 32px;
+  --e-7: 48px;
+  --e-8: 64px;
+  --e-9: 96px;
+
+  /* Bordes */
+  --radio-chico: 4px;     /* contorno de foco */
+  --radio-tarjeta: 18px;  /* tarjetas, capturas, íconos, monograma */
+  --radio-pildora: 999px; /* botones y chips */
+
+  /* Sombra */
+  --sombra: 0 12px 32px rgba(21, 18, 31, .08); /* tinta al 8 % */
+
+  /* Movimiento */
+  --transicion: .15s ease;
+}
+
+/* Base */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fuente);
+  font-weight: 400;
+  font-size: var(--texto-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
+}
+a { color: var(--violeta-texto); }
+p { margin: 0 0 1em; max-width: 38rem; }
+img { display: block; }
+
+/* Foco y utilidades de accesibilidad */
+:focus-visible { outline: 3px solid var(--violeta-texto); outline-offset: 3px; border-radius: var(--radio-chico); }
+.oscuro :focus-visible { outline-color: var(--violeta-texto-osc); }
+.oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.saltar {
+  position: absolute; left: var(--e-4); top: -100px; z-index: 100;
+  padding: 12px 18px; border-radius: var(--radio-pildora);
+  background: var(--tinta); color: var(--papel); font-weight: 600; text-decoration: none;
+}
+.saltar:focus { top: var(--e-3); }
+
+/* Contenedor */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--e-5); }
+@media (max-width: 560px) { .wrap { padding: 0 var(--e-4); } }
+
+/* Títulos: peso 600 con espaciado negativo */
+h1, h2, h3 { font-weight: 600; margin: 0; letter-spacing: -0.03em; }
+h2 { font-size: var(--texto-h2); line-height: 1.05; margin-bottom: .5em; }
+h3 { font-size: var(--texto-h3); line-height: 1.2; letter-spacing: -0.02em; }
+
+/* Etiqueta: texto chico en mayúsculas con espaciado positivo.
+   Sola, va arriba de un título (bloque con margen). Con .chip o .numero se usa en línea. */
+.etiqueta {
+  display: block; margin: 0 0 var(--e-4);
+  font-size: var(--texto-etiqueta); font-weight: 600; line-height: 1.6;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.oscuro .etiqueta { color: var(--tinta-suave-osc); }
+
+/* Chip: pastilla con borde para etiquetas cortas y herramientas */
+.chip {
+  display: inline-flex; align-items: center; margin: 0;
+  padding: 6px 11px; line-height: 1;
+  font-size: var(--texto-chico);
+  border: 1px solid var(--linea); border-radius: var(--radio-pildora); background: var(--blanco);
+}
+.etiqueta.chip { font-size: var(--texto-etiqueta); padding: 5px 10px; } /* chip en mayúsculas, como «Demo» */
+
+/* Botones */
+.boton {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 24px; min-height: 44px; border-radius: var(--radio-pildora);
+  font-family: inherit; font-weight: 600; font-size: 1rem; line-height: 1;
+  text-decoration: none; cursor: pointer; border: 2px solid transparent;
+  transition: background-color var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+.boton svg { width: 20px; height: 20px; flex: none; }
+.boton-principal { background: var(--violeta); color: var(--blanco); }
+.boton-principal:hover { background: var(--violeta-hover); }
+.boton-secundario { color: var(--tinta); border-color: var(--tinta); background: transparent; }
+.boton-secundario:hover { background: var(--tinta); color: var(--papel); }
+.boton-chico { padding: 10px 18px; font-size: var(--texto-chico); }
+@media (max-width: 400px) { .boton-chico { padding: 10px 14px; } }
+
+/* Encabezado */
+.encabezado {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--papel);
+  border-bottom: 1px solid var(--linea);
+}
+.encabezado .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--e-4); height: 72px; }
+.marca { display: flex; align-items: center; min-height: 44px; }
+.marca img { width: 128px; height: auto; }
+@media (max-width: 400px) { .marca img { width: 100px; } }
+
+/* Pie */
+footer { background: var(--tinta); color: var(--tinta-suave-osc); border-top: 1px solid var(--linea-osc); padding: var(--e-6) 0; font-size: var(--texto-chico); }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--e-4); }
+footer img { width: 104px; height: auto; }
+footer p { margin: 0; }
+footer a { color: var(--tinta-suave-osc); }
+footer a:hover { color: var(--papel); }
