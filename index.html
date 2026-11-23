@@ -105,11 +105,41 @@
     .marca { display: block; padding: 11px 0; }
     .marca img { width: 128px; height: auto; }
     .encabezado nav { display: flex; align-items: center; gap: 28px; }
-    .encabezado nav a:not(.boton) { font-size: .95rem; color: var(--tinta-suave); text-decoration: none; }
-    .encabezado nav a:not(.boton):hover { color: var(--tinta); }
+    .menu { display: flex; align-items: center; gap: 28px; }
+    .menu a { font-size: .95rem; color: var(--tinta-suave); text-decoration: none; }
+    .menu a:hover { color: var(--tinta); }
     .encabezado .boton { padding: 10px 18px; min-height: 44px; font-size: .92rem; }
+    .menu-boton {
+      display: none; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px;
+      font: inherit; font-size: .92rem; font-weight: 600; color: var(--tinta);
+      background: transparent; border: 2px solid var(--tinta); border-radius: 999px; cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .menu-boton svg { width: 18px; height: 18px; }
+    .menu-boton .cerrar { display: none; }
+    .menu-boton[aria-expanded="true"] .abrir { display: none; }
+    .menu-boton[aria-expanded="true"] .cerrar { display: block; }
     @media (max-width: 760px) {
-      .encabezado nav a:not(.boton) { display: none; }
+      .encabezado nav { gap: 8px; }
+      .menu { display: none; }
+      .js .menu-boton { display: inline-flex; }
+      .js .menu.abierto {
+        display: flex; flex-direction: column; align-items: stretch; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        padding: 8px 16px 16px; background: var(--papel);
+        border-bottom: 1px solid var(--linea); box-shadow: 0 12px 24px rgba(21, 18, 31, .08);
+      }
+      .js .menu.abierto a {
+        display: flex; align-items: center; min-height: 52px;
+        font-size: 1.15rem; color: var(--tinta); border-bottom: 1px solid var(--linea);
+      }
+      .js .menu.abierto a:last-child { border-bottom: 0; }
+    }
+    @media (max-width: 380px) {
+      .marca img { width: 100px; }
+      .menu-boton { width: 44px; padding: 0; justify-content: center; }
+      .menu-texto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+      .encabezado .boton { padding: 10px 14px; }
     }
 
     /* Héroe */
@@ -295,10 +325,17 @@
       <img src="./assets/marca/ualvarez-logo.svg" alt="ualvarez" width="128" height="22">
     </a>
     <nav aria-label="Principal">
-      <a href="#servicios">Servicios</a>
-      <a href="#trabajos">Trabajos</a>
-      <a href="#como-trabajo">Cómo trabajo</a>
-      <a href="#sobre-mi">Sobre mí</a>
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu">
+        <svg class="abrir" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="cerrar" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="menu-texto">Menú</span>
+      </button>
+      <div class="menu" id="menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#como-trabajo">Cómo trabajo</a>
+        <a href="#sobre-mi">Sobre mí</a>
+      </div>
       <a href="#contacto" class="boton boton-violeta">Escribime</a>
     </nav>
   </div>
@@ -515,6 +552,24 @@
 </footer>
 
 <script>
+  // Menú para celular
+  document.documentElement.classList.add('js');
+  const menuBoton = document.querySelector('.menu-boton');
+  const menu = document.getElementById('menu');
+  const abrirMenu = (abrir) => {
+    menuBoton.setAttribute('aria-expanded', String(abrir));
+    menu.classList.toggle('abierto', abrir);
+  };
+  menuBoton.addEventListener('click', () => abrirMenu(menuBoton.getAttribute('aria-expanded') !== 'true'));
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) abrirMenu(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('abierto')) { abrirMenu(false); menuBoton.focus(); }
+  });
+  document.addEventListener('click', (e) => {
+    if (menu.classList.contains('abierto') && !e.target.closest('.encabezado')) abrirMenu(false);
+  });
+  matchMedia('(min-width: 761px)').addEventListener('change', (e) => { if (e.matches) abrirMenu(false); });
+
   const EMAIL = 'contacto@ualvarez.com.ar';
   const aviso = document.getElementById('aviso');
   let temporizador;
