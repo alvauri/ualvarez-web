@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Qué es
 
-Landing estática de ualvarez (consultoría en webs, procesos y automatizaciones, Rosario). HTML, CSS y JavaScript sin frameworks, sin dependencias y sin paso de build. Todo el contenido está en español rioplatense con voseo ("escribime", "contame"); los mensajes de commit también van en español.
+Landing estática de ualvarez (consultoría en webs, procesos y automatizaciones). El negocio trabaja 100 % a distancia desde Rosario para toda Argentina, con la idea de abrirse después a otros países: Rosario aparece como origen (pie, domicilio legal, dirección en los datos estructurados), no como límite en títulos ni descripciones. HTML, CSS y JavaScript sin frameworks, sin dependencias y sin paso de build. Todo el contenido está en español rioplatense con voseo ("escribime", "contame"); los mensajes de commit también van en español.
 
 Netlify publica `main` en https://www.ualvarez.com.ar (el dominio sin `www` redirige ahí). Cada PR genera una vista previa en `https://deploy-preview-<número>--ualvarez-web.netlify.app`.
 

@@ -45,7 +45,7 @@ El script imprime un informe en Markdown (y lo guarda en `informe.md` dentro de 
 - **❌ en CSP local:** casi siempre es un `<script>` escrito dentro del HTML o un `onclick`. La solución es mover el código a `assets/js/`, no aflojar la política. Si el cambio necesita un dominio nuevo (fuentes, analítica, un formulario), hay que agregarlo a la directiva que corresponde en `_headers`. Si el dominio recibe datos de visitantes, también hay que actualizar `privacidad.html`.
 - **❌ en objetivos táctiles:** el informe dice qué elemento y su tamaño. Se arregla con `min-height: 44px` o más relleno, usando las variables de `base.css`.
 - **❌ en desborde:** el informe dice desde qué ancho se desborda. Suele ser un ancho fijo en px o un texto largo sin cortar.
-- **Capturas «distinta»:** no es una falla. Mirá las imágenes `lado-*.png` (antes a la izquierda, después a la derecha) y confirmá que los cambios sean los buscados. Si la diferencia no era intencional, investigala.
+- **Capturas «distinta»:** no es una falla. Si el alto no cambió y el porcentaje de píxeles distintos es muy bajo (alrededor de 0,2 % o menos) en una página que no tocaste, suele ser ruido del suavizado de las fuentes: confirmalo mirando la imagen lado a lado. Un cambio real de una palabra también mueve pocos píxeles, pero concentrados en un lugar. Mirá las imágenes `lado-*.png` (antes a la izquierda, después a la derecha) y confirmá que los cambios sean los buscados. Si la diferencia no era intencional, investigala.
 - **En producción,** el script bloquea a propósito `/.netlify/scripts/hud`, el script que inyecta Netlify, porque siempre dispara un aviso de CSP que no es del sitio.
 
 ## Cómo contarle el resultado al usuario
