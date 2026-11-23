@@ -18,6 +18,7 @@ Netlify publica `main` en https://www.ualvarez.com.ar (el dominio sin `www` redi
 ## Arquitectura
 
 - **Páginas:** `index.html` (inicio), `privacidad.html` (política de privacidad según la Ley 25.326) y `404.html` (Netlify la muestra en cualquier dirección que no existe, por eso usa rutas absolutas `/assets/...` y no `./assets/...`). Cada una enlaza `assets/css/base.css` y después tiene un `<style>` con solo sus estilos propios.
+- **Buscadores:** cada página indexable lleva `<link rel="canonical">` y `og:url` con la dirección `https://www.ualvarez.com.ar/...` completa (con `www`). `index.html` tiene datos estructurados (`<script type="application/ld+json">`, tipo `ProfessionalService`) con los servicios: si cambian los servicios o el contacto, actualizalos ahí también. Al agregar una página, sumala a `sitemap.xml`; `robots.txt` apunta a ese sitemap.
 - **`_redirects`:** reglas de Netlify. Hoy solo hace que `/CLAUDE.md` devuelva 404, para que esta guía no se publique en la web. Las carpetas que empiezan con punto (como `.claude/`) Netlify ya no las publica.
 - **`assets/css/base.css`** es el sistema de diseño compartido: variables en `:root` y los componentes que usan las dos páginas (base, foco, `.oculto`, `.saltar`, `.wrap`, títulos, `.etiqueta`, `.chip`, botones, `.encabezado`/`.marca`, pie). Lo que se repite entre páginas va acá, no copiado en cada `<style>`.
 - **JavaScript:**
