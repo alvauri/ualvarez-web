@@ -39,6 +39,8 @@ Netlify publica `main` en https://www.ualvarez.com.ar (el dominio sin `www` redi
 
 `_headers` define una CSP estricta: `script-src 'self'`, así que **no se pueden agregar scripts inline ni atributos `onclick`/`on*`**: todo el JavaScript va en archivos de `assets/js/`. Los estilos inline sí están permitidos. Cualquier recurso de un dominio nuevo (fuentes, imágenes, analítica, un formulario) necesita agregarse a la directiva correspondiente de la CSP; hoy solo están permitidos Google Fonts (`fonts.googleapis.com` y `fonts.gstatic.com`).
 
+El contacto es por mail y por WhatsApp (`wa.me/5493412507273`, con un mensaje inicial distinto en cada página); la política de privacidad menciona los dos canales. Si se cambia el número, actualizalo en los botones de contacto y en el `telephone` de los datos estructurados de `index.html`.
+
 Si se suma algo que recibe o registra datos de visitantes (un formulario, estadísticas, cookies), hay que actualizar también `privacidad.html` y su fecha de «Última actualización»: la política dice explícitamente que el sitio no tiene formularios, cookies ni seguimiento.
 
 ## Accesibilidad (WCAG 2.1 AA)
