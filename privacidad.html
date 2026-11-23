@@ -19,90 +19,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="./assets/css/base.css">
   <style>
-    /* Paleta del manual de marca (la misma que index.html) */
-    :root {
-      --papel: #F3EDE4;
-      --blanco: #FFFFFF;
-      --tinta: #15121F;
-      --violeta: #6D4AFF;
-      --violeta-hover: #5B3BE8;
-      --violeta-texto: #5B3BE8;
-      --violeta-texto-osc: #8B70FF;
-      --tinta-suave: #6E6355;
-      --tinta-suave-osc: #B8AC9C;
-      --linea: #E4DBCD;
-      --linea-osc: #2E2840;
-      --fuente: 'Space Grotesk', system-ui, sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--papel);
-      color: var(--tinta);
-      font-family: var(--fuente);
-      font-size: 1.0625rem;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: var(--violeta-texto); }
+    /* Estilos propios de la política de privacidad. Variables y componentes compartidos: assets/css/base.css */
     p, li { max-width: 40rem; }
-    p { margin: 0 0 1em; }
-    img { display: block; }
-    :focus-visible { outline: 3px solid var(--violeta-texto); outline-offset: 3px; border-radius: 4px; }
-    .oscuro :focus-visible { outline-color: var(--violeta-texto-osc); }
-    .saltar { position: absolute; left: 16px; top: -100px; z-index: 100; padding: 12px 18px; border-radius: 999px; background: var(--tinta); color: var(--papel); font-weight: 600; text-decoration: none; }
-    .saltar:focus { top: 12px; }
 
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    @media (max-width: 560px) { .wrap { padding: 0 16px; } }
+    h1 { font-size: var(--texto-h2); line-height: 1.02; letter-spacing: -0.04em; margin-bottom: var(--e-5); }
+    h2 { font-size: var(--texto-h3); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: var(--e-3); }
 
-    h1, h2 { font-weight: 600; margin: 0; }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.02; letter-spacing: -0.04em; margin-bottom: 20px; }
-    h2 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 12px; }
+    main { padding: var(--e-8) 0 var(--e-9); }
+    @media (max-width: 760px) { main { padding: var(--e-7) 0 var(--e-8); } }
+    .bajada { font-size: var(--texto-intro); color: var(--tinta-suave); }
+    .actualizado { font-size: var(--texto-chico); color: var(--tinta-suave); margin-bottom: var(--e-7); }
 
-    .etiqueta {
-      display: block; margin: 0 0 18px;
-      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--tinta-suave);
-    }
-
-    .boton {
-      display: inline-flex; align-items: center; padding: 10px 18px; min-height: 44px; border-radius: 999px;
-      font-weight: 600; font-size: .92rem; line-height: 1; text-decoration: none;
-      background: var(--violeta); color: var(--blanco); transition: background-color .15s ease;
-    }
-    .boton:hover { background: var(--violeta-hover); }
-
-    .encabezado { position: sticky; top: 0; z-index: 50; background: var(--papel); border-bottom: 1px solid var(--linea); }
-    .encabezado .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
-    .marca { display: block; padding: 11px 0; }
-    .marca img { width: 128px; height: auto; }
-
-    main { padding: 72px 0 96px; }
-    @media (max-width: 700px) { main { padding: 48px 0 64px; } }
-    .bajada { font-size: 1.15rem; color: var(--tinta-suave); }
-    .actualizado { font-size: .95rem; color: var(--tinta-suave); margin-bottom: 48px; }
-
-    .bloque { border-top: 1px solid var(--linea); padding: 32px 0; }
+    .bloque { border-top: 1px solid var(--linea); padding: var(--e-6) 0; }
     .bloque ul { margin: 0 0 1em; padding-left: 1.2em; }
     .bloque li { margin-bottom: 6px; }
     .legal {
-      margin-top: 16px; padding: 24px; border-radius: 18px;
+      margin-top: var(--e-4); padding: var(--e-5); border-radius: var(--radio-tarjeta);
       background: var(--blanco); border: 1px solid var(--linea);
-      font-size: .95rem; color: var(--tinta-suave);
+      font-size: var(--texto-chico); color: var(--tinta-suave);
     }
     .legal p:last-child { margin-bottom: 0; }
-
-    footer { background: var(--tinta); color: var(--tinta-suave-osc); border-top: 1px solid var(--linea-osc); padding: 32px 0; font-size: .95rem; }
-    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    footer img { width: 104px; height: auto; }
-    footer p { margin: 0; }
-    footer a { color: var(--tinta-suave-osc); }
-    footer a:hover { color: var(--papel); }
   </style>
 </head>
 <body>
@@ -113,7 +51,7 @@
     <a href="./" class="marca" aria-label="ualvarez, volver al inicio">
       <img src="./assets/marca/ualvarez-logo.svg" alt="ualvarez" width="128" height="22">
     </a>
-    <a href="./#contacto" class="boton">Escribime</a>
+    <a href="./#contacto" class="boton boton-principal boton-chico">Escribime</a>
   </div>
 </header>
 
