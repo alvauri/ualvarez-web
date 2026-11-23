@@ -195,9 +195,10 @@ async function verificarLocal(navegador, base) {
 }
 
 // ---------- capturas de antes y después ----------
-async function capturar(navegador, base, carpeta) {
+async function capturar(navegador, base, carpeta, dir = RAIZ) {
   fs.mkdirSync(carpeta, { recursive: true });
-  for (const archivo of PAGINAS) for (const ancho of [390, 1440]) {
+  // Solo las páginas que existen en esa versión: una página nueva figura como «nueva» en la comparación.
+  for (const archivo of PAGINAS.filter((f) => fs.existsSync(path.join(dir, f)))) for (const ancho of [390, 1440]) {
     const contexto = await navegador.newContext({ viewport: { width: ancho, height: 900 } });
     const pagina = await contexto.newPage();
     await pagina.goto(`${base}/${archivo}`);
@@ -276,7 +277,7 @@ async function verificarProduccion(navegador) {
       execSync(`git -C "${RAIZ}" worktree add --detach "${dirAntes}" ${rama}`, { stdio: 'ignore' });
       try {
         const antes = await servir(dirAntes);
-        await capturar(navegador, antes.base, path.join(SALIDA, 'antes'));
+        await capturar(navegador, antes.base, path.join(SALIDA, 'antes'), dirAntes);
         antes.servidor.close();
       } finally {
         execSync(`git -C "${RAIZ}" worktree remove --force "${dirAntes}"`, { stdio: 'ignore' });

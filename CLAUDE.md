@@ -17,7 +17,8 @@ Netlify publica `main` en https://www.ualvarez.com.ar (el dominio sin `www` redi
 
 ## Arquitectura
 
-- **Páginas:** `index.html` (inicio) y `privacidad.html` (política de privacidad según la Ley 25.326). Cada una enlaza `assets/css/base.css` y después tiene un `<style>` con solo sus estilos propios.
+- **Páginas:** `index.html` (inicio), `privacidad.html` (política de privacidad según la Ley 25.326) y `404.html` (Netlify la muestra en cualquier dirección que no existe, por eso usa rutas absolutas `/assets/...` y no `./assets/...`). Cada una enlaza `assets/css/base.css` y después tiene un `<style>` con solo sus estilos propios.
+- **`_redirects`:** reglas de Netlify. Hoy solo hace que `/CLAUDE.md` devuelva 404, para que esta guía no se publique en la web. Las carpetas que empiezan con punto (como `.claude/`) Netlify ya no las publica.
 - **`assets/css/base.css`** es el sistema de diseño compartido: variables en `:root` y los componentes que usan las dos páginas (base, foco, `.oculto`, `.saltar`, `.wrap`, títulos, `.etiqueta`, `.chip`, botones, `.encabezado`/`.marca`, pie). Lo que se repite entre páginas va acá, no copiado en cada `<style>`.
 - **JavaScript:**
   - `assets/js/js-activo.js` se carga sin `defer` en el `<head>` y agrega la clase `js` a `<html>`. El CSS del menú para celular depende de esa clase: con `.js` muestra el botón «Menú»; sin JavaScript (`html:not(.js)`) muestra las secciones en una fila debajo del logo.
