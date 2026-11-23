@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | ualvarez</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F3EDE4">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/marca/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/marca/ua-icono-512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Rutas absolutas: esta página se muestra en cualquier dirección que no exista, a cualquier profundidad -->
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <style>
+    /* Estilos propios de la página 404. Variables y componentes compartidos: assets/css/base.css */
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; display: flex; align-items: center; padding: var(--e-9) 0; }
+    main > .wrap { width: 100%; } /* que el contenido quede alineado con el logo, no centrado */
+    h1 { font-size: var(--texto-display); line-height: .98; letter-spacing: -0.045em; margin-bottom: var(--e-5); max-width: 12ch; }
+    .bajada { font-size: var(--texto-intro); color: var(--tinta-suave); margin-bottom: var(--e-6); }
+    .acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+    @media (max-width: 760px) { main { padding: var(--e-8) 0; } }
+  </style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="encabezado">
+  <div class="wrap">
+    <a href="/" class="marca" aria-label="ualvarez, volver al inicio">
+      <img src="/assets/marca/ualvarez-logo.svg" alt="ualvarez" width="128" height="22">
+    </a>
+    <a href="/#contacto" class="boton boton-principal boton-chico">Escribime</a>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="wrap">
+    <span class="etiqueta">Error 404</span>
+    <h1>Esta página no existe.</h1>
+    <p class="bajada">Puede que la dirección esté mal escrita o que la página se haya movido. Desde el inicio encontrás todo lo que hago.</p>
+    <div class="acciones">
+      <a href="/" class="boton boton-principal">Ir al inicio</a>
+      <a href="/#contacto" class="boton boton-secundario">Escribime</a>
+    </div>
+  </div>
+</main>
+
+<footer class="oscuro">
+  <div class="wrap">
+    <img src="/assets/marca/ualvarez-logo-claro.svg" alt="ualvarez" width="104" height="18">
+    <p><a href="/">Inicio</a> · <a href="/privacidad.html">Política de privacidad</a> · © 2026 · Rosario, Argentina</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+# Reglas de Netlify. El "!" fuerza la regla aunque el archivo exista.
+
+# CLAUDE.md es la guía para Claude Code: vive en el repo pero no se publica en la web.
+/CLAUDE.md  /404.html  404!
