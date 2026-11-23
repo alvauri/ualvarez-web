@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ualvarez | Te ayudo a digitalizar tu negocio</title>
+  <title>Webs, procesos y automatizaciones en Rosario | ualvarez</title>
   <meta name="description" content="Webs, relevamiento de procesos y automatizaciones para negocios. Precio y plazo cerrados antes de empezar. Desde Rosario, Argentina.">
 
   <link rel="canonical" href="https://www.ualvarez.com.ar/">
 
-  <meta property="og:title" content="ualvarez | Te ayudo a digitalizar tu negocio">
+  <meta property="og:title" content="Webs, procesos y automatizaciones en Rosario | ualvarez">
   <meta property="og:description" content="Webs, procesos y automatizaciones para negocios. Precio y plazo cerrados antes de empezar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.ualvarez.com.ar/">
@@ -57,7 +57,8 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Webs y catálogos",
-          "description": "Landings, sitios de presentación y catálogos con consulta por WhatsApp, con dominio propio y conexión segura."
+          "description": "Landings, sitios de presentación y catálogos con consulta por WhatsApp, con dominio propio y conexión segura.",
+          "url": "https://www.ualvarez.com.ar/webs-y-catalogos.html"
         }
       },
       {
@@ -65,7 +66,8 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Ordenar cómo trabajás",
-          "description": "Relevamiento de procesos, diagrama de cómo funciona hoy y cómo podría funcionar, y propuesta por etapas con costos claros."
+          "description": "Relevamiento de procesos, diagrama de cómo funciona hoy y cómo podría funcionar, y propuesta por etapas con costos claros.",
+          "url": "https://www.ualvarez.com.ar/ordenar-procesos.html"
         }
       },
       {
@@ -73,7 +75,8 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Automatizaciones",
-          "description": "Formularios conectados a planillas, avisos automáticos por mail o WhatsApp e integraciones entre las herramientas que ya usás."
+          "description": "Formularios conectados a planillas, avisos automáticos por mail o WhatsApp e integraciones entre las herramientas que ya usás.",
+          "url": "https://www.ualvarez.com.ar/automatizaciones.html"
         }
       }
     ]
@@ -134,11 +137,6 @@
       .menu-texto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     }
 
-    /* Secciones */
-    section { padding: var(--e-9) 0; }
-    @media (max-width: 760px) { section { padding: var(--e-8) 0; } }
-    .intro { font-size: var(--texto-intro); color: var(--tinta-suave); }
-    .acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
 
     /* Héroe */
     .heroe { padding: var(--e-9) 0; }
@@ -198,10 +196,6 @@
       .ua { font-size: 64px; }
     }
 
-    /* Listas con guion violeta (servicios y trabajos) */
-    .guiones { list-style: none; padding: 0; }
-    .guiones li { padding-left: 20px; position: relative; margin-bottom: 6px; }
-    .guiones li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--violeta); }
 
     /* Servicios: de la web a un negocio ordenado, en etapas */
     .servicios { list-style: none; margin: var(--e-7) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e-5); }
@@ -217,6 +211,7 @@
     .servicio h3 { margin-bottom: var(--e-3); }
     .servicio p { color: var(--tinta-suave); margin: 0 0 var(--e-4); }
     .servicio ul { margin: auto 0 0; padding-top: var(--e-4); border-top: 1px solid var(--linea); }
+    .servicio .ver { align-self: flex-start; margin-top: var(--e-2); }
     @media (max-width: 900px) { .servicios { grid-template-columns: 1fr; } .servicio { padding: var(--e-5); } .servicio .numero { top: var(--e-5); right: var(--e-5); } }
 
     /* Trabajos */
@@ -235,13 +230,6 @@
     }
     .trabajo .detalle p { margin-bottom: var(--e-4); }
     .trabajo ul { margin: 0 0 var(--e-5); color: var(--tinta-suave); }
-    .ver {
-      display: inline-flex; align-items: center; gap: var(--e-2);
-      font-weight: 600; color: var(--violeta-texto); padding: 10px 0;
-      text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px;
-    }
-    .ver:hover { color: var(--tinta); }
-    .ver svg { width: 16px; height: 16px; }
     @media (max-width: 760px) { .trabajo { grid-template-columns: 1fr; gap: var(--e-4); padding: var(--e-6) 0; } }
 
     /* Garantías */
@@ -252,16 +240,6 @@
     .garantias p { color: var(--tinta-suave); margin: 0; }
     @media (max-width: 760px) { .garantias { grid-template-columns: 1fr; } .garantias div { padding: var(--e-5); } }
 
-    /* Cómo trabajo: cuatro pasos sobre una línea */
-    .pasos { list-style: none; margin: var(--e-7) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--e-6); border-top: 1px solid var(--linea); }
-    .pasos li { padding-top: var(--e-5); }
-    .pasos .etiqueta { margin-bottom: var(--e-3); }
-    .pasos h3 { margin-bottom: var(--e-2); }
-    .pasos p { color: var(--tinta-suave); margin: 0; }
-    @media (max-width: 760px) {
-      .pasos { grid-template-columns: 1fr; gap: 0; border-top: 0; }
-      .pasos li { padding: var(--e-5) 0; border-top: 1px solid var(--linea); }
-    }
 
     /* Sobre mí */
     .sobre-mi { padding-top: 0; }
@@ -278,12 +256,6 @@
     @media (max-width: 560px) { .herramientas dl { grid-template-columns: 1fr; gap: 6px; } .herramientas dd { margin-bottom: var(--e-3); } }
 
     /* Contacto */
-    .contacto { background: var(--tinta); color: var(--papel); }
-    .contacto h2 { font-size: var(--texto-display); letter-spacing: -0.04em; line-height: 1; max-width: 12ch; }
-    .contacto .intro { color: var(--tinta-suave-osc); }
-    .contacto .acciones { margin-top: var(--e-6); }
-    .contacto .directo { margin: var(--e-5) 0 0; color: var(--papel); }
-    .contacto .email { margin: var(--e-5) 0 0; font-size: var(--texto-chico); color: var(--tinta-suave-osc); }
     .copiar {
       margin-top: 0; background: none; border: 0; padding: 0; min-height: 44px; cursor: pointer;
       font: inherit; font-size: var(--texto-chico); color: var(--tinta-suave-osc);
@@ -300,6 +272,7 @@
   <defs>
     <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></g></symbol>
     <symbol id="i-abrir" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></g></symbol>
     <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 9h19"/><path d="M6 6.5h.01M9 6.5h.01"/></g></symbol>
     <symbol id="i-brujula" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></g></symbol>
     <symbol id="i-engranaje" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></g></symbol>
@@ -366,6 +339,7 @@
             <li>Catálogos con consulta por WhatsApp</li>
             <li>Dominio propio y conexión segura</li>
           </ul>
+          <a class="ver" href="./webs-y-catalogos.html">Ver el servicio<span class="oculto">: webs y catálogos</span><svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
         </li>
         <li class="servicio">
           <span class="etiqueta numero" aria-hidden="true">02</span>
@@ -377,6 +351,7 @@
             <li>Diagrama de cómo funciona hoy y cómo podría funcionar</li>
             <li>Propuesta por etapas con costos claros</li>
           </ul>
+          <a class="ver" href="./ordenar-procesos.html">Ver el servicio<span class="oculto">: ordenar cómo trabajás</span><svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
         </li>
         <li class="servicio">
           <span class="etiqueta numero" aria-hidden="true">03</span>
@@ -388,6 +363,7 @@
             <li>Avisos automáticos por mail o WhatsApp</li>
             <li>Integraciones entre las herramientas que ya usás</li>
           </ul>
+          <a class="ver" href="./automatizaciones.html">Ver el servicio<span class="oculto">: automatizaciones</span><svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
         </li>
       </ul>
     </div>

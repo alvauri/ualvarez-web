@@ -145,6 +145,45 @@ h3 { font-size: var(--texto-h3); line-height: 1.2; letter-spacing: -0.02em; }
 .marca img { width: 128px; height: auto; }
 @media (max-width: 400px) { .marca img { width: 100px; } }
 
+/* Secciones de contenido (inicio y páginas de servicio) */
+section { padding: var(--e-9) 0; }
+@media (max-width: 760px) { section { padding: var(--e-8) 0; } }
+.intro { font-size: var(--texto-intro); color: var(--tinta-suave); }
+.acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+
+/* Lista con guion violeta */
+.guiones { list-style: none; padding: 0; }
+.guiones li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+.guiones li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--violeta); }
+
+/* Enlace destacado con ícono (ver un proyecto, ir a un servicio) */
+.ver {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  font-weight: 600; color: var(--violeta-texto); padding: 10px 0;
+  text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px;
+}
+.ver:hover { color: var(--tinta); }
+.ver svg { width: 16px; height: 16px; }
+
+/* Cómo trabajo: cuatro pasos sobre una línea */
+.pasos { list-style: none; margin: var(--e-7) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--e-6); border-top: 1px solid var(--linea); }
+.pasos li { padding-top: var(--e-5); }
+.pasos .etiqueta { margin-bottom: var(--e-3); }
+.pasos h3 { margin-bottom: var(--e-2); }
+.pasos p { color: var(--tinta-suave); margin: 0; }
+@media (max-width: 760px) {
+  .pasos { grid-template-columns: 1fr; gap: 0; border-top: 0; }
+  .pasos li { padding: var(--e-5) 0; border-top: 1px solid var(--linea); }
+}
+
+/* Bloque de contacto (sección oscura al final de la página) */
+.contacto { background: var(--tinta); color: var(--papel); }
+.contacto h2 { font-size: var(--texto-display); letter-spacing: -0.04em; line-height: 1; max-width: 12ch; }
+.contacto .intro { color: var(--tinta-suave-osc); }
+.contacto .acciones { margin-top: var(--e-6); }
+.contacto .directo { margin: var(--e-5) 0 0; color: var(--papel); }
+.contacto .email { margin: var(--e-5) 0 0; font-size: var(--texto-chico); color: var(--tinta-suave-osc); }
+
 /* Pie */
 footer { background: var(--tinta); color: var(--tinta-suave-osc); border-top: 1px solid var(--linea-osc); padding: var(--e-6) 0; font-size: var(--texto-chico); }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--e-4); }
