@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Páginas públicas del sitio. Al agregar una página nueva, sumala acá y actualizá su fecha. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.ualvarez.com.ar/</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ualvarez.com.ar/privacidad.html</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+</urlset>

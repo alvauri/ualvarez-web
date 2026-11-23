@@ -1,0 +1,5 @@
+# Todo el sitio se puede indexar. La página 404 lleva noindex en su propio <head>.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ualvarez.com.ar/sitemap.xml
