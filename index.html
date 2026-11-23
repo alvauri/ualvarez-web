@@ -113,9 +113,9 @@
     .heroe { padding: 88px 0 96px; }
     .heroe .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
     .heroe h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
       line-height: .98; letter-spacing: -0.045em;
-      max-width: 12ch; margin-bottom: 28px;
+      max-width: 14ch; margin-bottom: 28px;
     }
     .heroe .bajada { font-size: 1.2rem; color: var(--tinta-suave); max-width: 32rem; margin-bottom: 32px; }
     .acciones { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -175,6 +175,7 @@
     }
     .trabajo h3 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); letter-spacing: -0.035em; line-height: 1.05; }
     .trabajo .rubro { margin: 10px 0 0; color: var(--tinta-suave); font-size: 1rem; }
+    .trabajo .demo { display: inline-block; margin: 14px 0 0; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; border: 1px solid var(--linea); border-radius: 999px; color: var(--tinta-suave); }
     .trabajo .detalle p { margin-bottom: 14px; }
     .trabajo ul { margin: 0 0 20px; padding: 0; list-style: none; color: var(--tinta-suave); }
     .trabajo li { padding-left: 20px; position: relative; margin-bottom: 6px; }
@@ -243,6 +244,8 @@
     .herramientas dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
     .herramientas dd span { font-size: .88rem; line-height: 1; padding: 6px 11px; border: 1px solid var(--linea); border-radius: 999px; background: var(--blanco); }
     .sobre-mi .disponible { margin: 20px 0 0; font-size: .95rem; }
+    .herramientas h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .herramientas > p { font-size: 1rem; color: var(--tinta-suave); margin: 0 0 20px; }
     @media (max-width: 560px) { .herramientas dl { grid-template-columns: 1fr; gap: 6px; } .herramientas dd { margin-bottom: 10px; } }
     @media (max-width: 760px) { .sobre-mi .grilla { grid-template-columns: 1fr; gap: 8px; } }
 
@@ -251,8 +254,10 @@
     .contacto h2 { font-size: clamp(2.4rem, 6vw, 4.25rem); letter-spacing: -0.04em; line-height: 1; max-width: 12ch; }
     .contacto .intro { color: var(--tinta-suave-osc); }
     .contacto .acciones { margin-top: 32px; }
+    .contacto .directo { margin: 20px 0 0; font-size: 1.05rem; color: var(--papel); }
+    .contacto .email { margin: 20px 0 0; font-size: .95rem; color: var(--tinta-suave-osc); }
     .copiar {
-      margin-top: 20px; background: none; border: 0; padding: 4px 0; cursor: pointer;
+      margin-top: 0; background: none; border: 0; padding: 4px 0; cursor: pointer;
       font: inherit; font-size: .95rem; color: var(--tinta-suave-osc);
       text-decoration: underline; text-underline-offset: 3px;
     }
@@ -298,9 +303,9 @@
   <section class="heroe">
     <div class="wrap">
       <div>
-        <span class="etiqueta">Soluciones digitales para negocios</span>
-        <h1>Te ayudo a digitalizar tu negocio.</h1>
-        <p class="bajada">Empezamos por tu web y seguimos por lo que más te haga falta: ordenar cómo trabajás y automatizar tareas repetitivas.</p>
+        <span class="etiqueta">Webs · Procesos · Automatizaciones</span>
+        <h1>Tu negocio en internet, ordenado y con menos tareas a mano.</h1>
+        <p class="bajada">Una web que te traiga consultas, procesos más ordenados y tareas repetitivas que se hacen solas. Arrancamos por lo que más necesites.</p>
         <div class="acciones">
           <a href="#contacto" class="boton boton-violeta">Contame tu proyecto</a>
           <a href="#servicios" class="boton boton-borde">Ver servicios</a>
@@ -334,7 +339,7 @@
         </li>
         <li class="servicio">
           <span class="icono" aria-hidden="true"><svg><use href="#i-brujula"/></svg></span>
-          <h3>Relevamiento y diagnóstico</h3>
+          <h3>Ordenar cómo trabajás</h3>
           <p>Miro cómo trabajás hoy, dónde se pierde tiempo o información, y te propongo mejoras concretas, por escrito.</p>
           <ul>
             <li>Relevamiento de tus procesos actuales</li>
@@ -359,8 +364,8 @@
   <section id="trabajos">
     <div class="wrap">
       <span class="etiqueta">Trabajos</span>
-      <h2>Proyectos que ya están funcionando.</h2>
-      <p class="intro">Con clientes reales, que hoy los usan para vender y atender.</p>
+      <h2>Proyectos reales y demos para probar.</h2>
+      <p class="intro">Un catálogo que ya usa un cliente para vender y una demo que podés probar vos mismo.</p>
       <ul class="trabajos">
         <li class="trabajo">
           <div>
@@ -368,7 +373,7 @@
             <p class="rubro">Calzado de cuero para mozos y gastronómicos</p>
           </div>
           <div class="detalle">
-            <p>Un comercio que vendía solo de forma tradicional y necesitaba mostrar sus modelos en internet. Armamos un catálogo que carga rápido en el celular y en el que cada producto lleva directo a una consulta por WhatsApp.</p>
+            <p>Un comercio que vendía solo por encargo y necesitaba mostrar sus modelos en internet. Armamos un catálogo que carga rápido en el celular y en el que cada producto lleva directo a una consulta por WhatsApp.</p>
             <ul>
               <li>Catálogo de productos con fotos y descripción</li>
               <li>Pedido y consulta directa por WhatsApp</li>
@@ -383,6 +388,7 @@
           <div>
             <h3>Portal de clientes</h3>
             <p class="rubro">Área privada para empresas de servicios</p>
+            <span class="demo">Demo</span>
           </div>
           <div class="detalle">
             <p>Un espacio donde cada cliente entra con su propia cuenta y consulta el estado de su servicio, sin tener que preguntar por teléfono o por mail.</p>
@@ -402,8 +408,8 @@
 
   <section class="incluye-seccion">
     <div class="wrap">
-      <span class="etiqueta">Qué incluye</span>
-      <h2>Qué incluye cada proyecto.</h2>
+      <span class="etiqueta">Garantías</span>
+      <h2>Lo que podés esperar de mí.</h2>
       <p class="intro">Sea una web o una automatización, trabajo siempre con las mismas reglas.</p>
       <div class="incluye">
         <div>
@@ -433,7 +439,7 @@
       <p class="intro">En cada momento sabés en qué etapa estamos y qué sigue.</p>
       <ol class="pasos">
         <li>
-          <h3>Charla inicial</h3>
+          <h3>Charla inicial, sin cargo</h3>
           <p>Me contás qué hace tu negocio, cómo trabajás hoy y qué querés mejorar.</p>
         </li>
         <li>
@@ -459,11 +465,10 @@
         <h2>Uriel Alvarez</h2>
       </div>
       <div>
-        <p>Soy consultor en transformación digital. Encaro cada proyecto como un proyecto de software: primero entiendo el problema, después diseño la solución y recién ahí la construyo.</p>
-        <p>Del análisis funcional traigo el relevamiento de requerimientos, el modelado de procesos y la documentación clara. De la ingeniería de software, el diseño de la solución, el desarrollo y las pruebas antes de entregar.</p>
-        <p>Trabajás directamente conmigo, de la primera charla a la entrega, sin intermediarios.</p>
+        <p>Antes de construir algo, entiendo cómo funciona tu negocio. Después diseño la solución, la armo y la pruebo antes de entregártela.</p>
         <div class="herramientas">
-          <span class="etiqueta">Con qué trabajo</span>
+          <span class="etiqueta">Para empresas y equipos de software</span>
+          <p>Del análisis funcional traigo el relevamiento de requerimientos, el modelado de procesos y la documentación clara. De la ingeniería de software, el diseño de la solución, el desarrollo y las pruebas antes de entregar.</p>
           <dl>
             <dt>Procesos</dt>
             <dd><span>Bizagi</span><span>draw.io</span><span>BPMN</span></dd>
@@ -486,11 +491,12 @@
       <h2>Hablemos de tu proyecto.</h2>
       <p class="intro">Contame qué hacés y qué necesitás. Te respondo en el día con una propuesta o con las preguntas que me falten.</p>
       <div class="acciones">
-        <a class="boton boton-violeta" href="mailto:contacto@ualvarez.com.ar?subject=Consulta%20por%20mi%20negocio">
-          <svg aria-hidden="true"><use href="#i-mail"/></svg>contacto@ualvarez.com.ar
+        <a class="boton boton-violeta" href="mailto:contacto@ualvarez.com.ar?subject=Consulta%20por%20mi%20negocio&amp;body=Mi%20negocio%20es%3A%20%0A%0ALo%20que%20necesito%3A%20%0A%0AC%C3%B3mo%20me%20contact%C3%A1s%3A%20">
+          <svg aria-hidden="true"><use href="#i-mail"/></svg>Escribime por mail
         </a>
       </div>
-      <button class="copiar" type="button" id="copiar">Copiar el email</button>
+      <p class="directo">Trabajás directamente conmigo, de la primera charla a la entrega, sin intermediarios.</p>
+      <p class="email">contacto@ualvarez.com.ar · <button class="copiar" type="button" id="copiar">Copiar el email</button></p>
       <span class="aviso" id="aviso" role="status"></span>
     </div>
   </section>
