@@ -146,9 +146,9 @@
     .heroe { padding: 88px 0 96px; }
     .heroe .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
     .heroe h1 {
-      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
       line-height: .98; letter-spacing: -0.045em;
-      max-width: 14ch; margin-bottom: 28px;
+      max-width: 15ch; margin-bottom: 28px; text-wrap: balance;
     }
     .heroe .bajada { font-size: 1.2rem; color: var(--tinta-suave); max-width: 32rem; margin-bottom: 32px; }
     .acciones { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -195,6 +195,11 @@
       .pieza { aspect-ratio: 16 / 10; }
       .pieza::before { width: 14%; height: 52%; }
     }
+    @media (max-width: 560px) {
+      .heroe .wrap { gap: 32px; }
+      .pieza { aspect-ratio: 3 / 1; border-radius: 18px; }
+      .ua { font-size: 64px; }
+    }
 
     section { padding: 96px 0; }
     @media (max-width: 700px) { section { padding: 64px 0; } }
@@ -217,7 +222,7 @@
     .trabajo .detalle p { margin-bottom: 14px; }
     .trabajo ul { margin: 0 0 20px; padding: 0; list-style: none; color: var(--tinta-suave); }
     .trabajo li { padding-left: 20px; position: relative; margin-bottom: 6px; }
-    .trabajo li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--tinta-suave); }
+    .trabajo li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 2px; background: var(--violeta); }
     .ver {
       display: inline-flex; align-items: center; gap: 8px;
       font-weight: 600; color: var(--violeta-texto); padding: 10px 0;
