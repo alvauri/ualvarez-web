@@ -29,16 +29,6 @@
 /* Sección con fondo claro, para separar del resto */
 .seccion-clara { background: var(--papel-claro); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
 
-/* Caso real con captura */
-.caso { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--e-6); align-items: center; margin-top: var(--e-7); }
-.caso img {
-  display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
-  border-radius: var(--radio-tarjeta); border: 1px solid var(--linea); background: var(--blanco); box-shadow: var(--sombra);
-}
-.caso h3 { font-size: var(--texto-subtitulo); letter-spacing: -0.035em; line-height: 1.05; margin-bottom: var(--e-3); }
-.caso p { color: var(--tinta-suave); }
-@media (max-width: 760px) { .caso { grid-template-columns: 1fr; gap: var(--e-5); } }
-
 /* Preguntas frecuentes con <details>: se abren sin JavaScript */
 .preguntas { margin-top: var(--e-7); border-top: 1px solid var(--linea); max-width: 48rem; }
 .preguntas details { border-bottom: 1px solid var(--linea); }
