@@ -54,4 +54,4 @@ El sitio pasa axe-core sin errores; mantenerlo así:
 
 ## Proyectos relacionados
 
-Los trabajos del portfolio viven en otros repositorios: `alvauri/calzadospro-web` (sitio estático) y `alvauri/portal-clientes` (demo con Supabase en https://ualvarez-portal.netlify.app). El portal todavía usa otra paleta (índigo y fuente del sistema), no la de ualvarez.
+El único trabajo del portfolio es la demo `alvauri/portal-clientes` (con Supabase, en https://ualvarez-portal.netlify.app), que vive en otro repositorio. El portal todavía usa otra paleta (índigo y fuente del sistema), no la de ualvarez.
