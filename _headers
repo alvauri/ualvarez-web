@@ -1,4 +1,4 @@
-# Cabeceras de seguridad para todo el sitio (Netlify)
+# Cabeceras de seguridad para todo el sitio (Cloudflare Pages usa el mismo formato)
 /*
   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   X-Frame-Options: DENY

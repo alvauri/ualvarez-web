@@ -4,7 +4,8 @@
 // capturas de antes y después contra una rama y las cabeceras en producción.
 //
 // Uso (desde la raíz del repo):
-//   node .claude/skills/verificar-sitio/scripts/verificar.js [--comparar origin/main] [--produccion] [--salida DIR]
+//   node .claude/skills/verificar-sitio/scripts/verificar.js [--comparar origin/main] [--produccion] [--url DIRECCIÓN] [--salida DIR]
+//   --url revisa otra dirección publicada (por ejemplo https://ualvarez-web.pages.dev) en lugar de www.ualvarez.com.ar.
 //
 // Sale con código 1 si alguna verificación falla. Escribe un resumen en Markdown por la salida estándar.
 
@@ -18,16 +19,22 @@ const { execSync } = require('child_process');
 // ---------- argumentos ----------
 const args = process.argv.slice(2);
 const opcion = (nombre) => { const i = args.indexOf(nombre); return i === -1 ? null : (args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : true); };
-const RAIZ = execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+// path.resolve: en Windows git devuelve la ruta con «/» y el servidor local la compara con «\».
+const RAIZ = path.resolve(execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim());
 const COMPARAR = opcion('--comparar');
-const PRODUCCION = !!opcion('--produccion');
+const URL_OTRA = typeof opcion('--url') === 'string' ? opcion('--url').replace(/\/+$/, '') : null;
+const PRODUCCION = !!opcion('--produccion') || !!URL_OTRA;
 const SALIDA = typeof opcion('--salida') === 'string' ? path.resolve(opcion('--salida')) : fs.mkdtempSync(path.join(os.tmpdir(), 'verificar-sitio-'));
-const URL_PRODUCCION = 'https://www.ualvarez.com.ar';
+const URL_PRODUCCION = URL_OTRA || 'https://www.ualvarez.com.ar';
 fs.mkdirSync(SALIDA, { recursive: true });
 
 // ---------- dependencias ----------
-let playwright;
-try { playwright = require('playwright'); } catch { playwright = require('/opt/node-tools/node_modules/playwright'); }
+// Busca Playwright completo; si solo está playwright-core (como en la compu del dueño), usa el Chrome instalado.
+let playwright; let canal = null;
+for (const modulo of ['playwright', '/opt/node-tools/node_modules/playwright', path.join(os.homedir(), '.cache', 'verificar-sitio', 'node_modules', 'playwright-core')]) {
+  try { playwright = require(modulo); if (modulo.endsWith('playwright-core')) canal = 'chrome'; break; } catch { /* probar el siguiente */ }
+}
+if (!playwright) throw new Error('Falta Playwright: npm install --prefix ~/.cache/verificar-sitio playwright-core');
 const { chromium, devices } = playwright;
 
 function cargarAxe() {
@@ -235,10 +242,16 @@ for f in sorted(os.listdir(d)):
     out.append({"f": f, "estado": "igual" if caja is None else "distinta", "alto": [ia.height, id_.height], "pct": pct})
 print(json.dumps(out))
 `;
+  // El script va a un archivo (no entre comillas) para que funcione igual en Linux y en Windows.
+  const archivo = path.join(os.tmpdir(), `verificar-comparar-${process.pid}.py`);
+  fs.writeFileSync(archivo, script);
   try {
-    return JSON.parse(execSync(`python3 -c '${script.replace(/'/g, "'\\''")}' "${antes}" "${despues}" "${salida}"`, { encoding: 'utf8' }));
-  } catch (e) {
+    for (const python of ['python3', 'python']) {
+      try { return JSON.parse(execSync(`${python} "${archivo}" "${antes}" "${despues}" "${salida}"`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })); } catch { /* probar el siguiente */ }
+    }
     return null; // sin Pillow: quedan las capturas sueltas
+  } finally {
+    fs.rmSync(archivo, { force: true });
   }
 }
 
@@ -264,8 +277,9 @@ async function verificarProduccion(navegador) {
   }
   for (const archivo of PAGINAS) {
     const contexto = await navegador.newContext({ viewport: { width: 1280, height: 900 } });
-    const { csp, errores } = await abrir(contexto, `${URL_PRODUCCION}/${archivo === 'index.html' ? '' : archivo}`, { bloquearHud: true });
-    anotar('Producción', `${archivo}: sin bloqueos de CSP (sin contar el script de Netlify)`, csp.length === 0, csp.join('\n'));
+    // Cloudflare Pages sirve cada página sin «.html» (pedir /privacidad.html redirige a /privacidad).
+    const { csp, errores } = await abrir(contexto, `${URL_PRODUCCION}/${archivo === 'index.html' ? '' : archivo.replace(/\.html$/, '')}`, { bloquearHud: true });
+    anotar('Producción', `${archivo}: sin bloqueos de CSP`, csp.length === 0, csp.join('\n'));
     anotar('Producción', `${archivo}: sin errores de JavaScript`, errores.length === 0, errores.join('\n'));
     await contexto.close();
   }
@@ -273,7 +287,7 @@ async function verificarProduccion(navegador) {
 
 // ---------- principal ----------
 (async () => {
-  const navegador = await chromium.launch();
+  const navegador = await chromium.launch(canal ? { channel: canal } : {});
   const { servidor, base } = await servir(RAIZ);
   let comparacion = null;
   try {

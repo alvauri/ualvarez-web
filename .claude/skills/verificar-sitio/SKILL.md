@@ -1,6 +1,6 @@
 ---
 name: verificar-sitio
-description: Verifica el sitio de ualvarez con un solo comando, tal como quedaría publicado en Netlify. Revisa accesibilidad con axe-core, la Content-Security-Policy de _headers, errores de JavaScript, desborde horizontal de 320 a 1440 px, objetivos táctiles de 44 px, el menú para celular (con y sin JavaScript) y el botón «Copiar el email». Opcionalmente compara capturas de antes y después contra main y revisa las cabeceras en producción. Usala siempre después de tocar cualquier HTML, CSS, JavaScript, imagen o _headers de este repo y antes de commitear o abrir un PR, aunque el cambio parezca chico. También cuando pidan «verificá el sitio», «probá la página», «¿está todo bien?», «¿se rompió algo?» o «fijate que ande en el celular», o después de aceptar un PR, para confirmar producción.
+description: Verifica el sitio de ualvarez con un solo comando, tal como quedaría publicado en Cloudflare Pages. Revisa accesibilidad con axe-core, la Content-Security-Policy de _headers, errores de JavaScript, desborde horizontal de 320 a 1440 px, objetivos táctiles de 44 px, el menú para celular (con y sin JavaScript) y el botón «Copiar el email». Opcionalmente compara capturas de antes y después contra main y revisa las cabeceras en producción. Usala siempre después de tocar cualquier HTML, CSS, JavaScript, imagen o _headers de este repo y antes de commitear o abrir un PR, aunque el cambio parezca chico. También cuando pidan «verificá el sitio», «probá la página», «¿está todo bien?», «¿se rompió algo?» o «fijate que ande en el celular», o después de aceptar un PR, para confirmar producción.
 ---
 
 # Verificar el sitio
@@ -20,15 +20,16 @@ Opciones:
 | Opción | Cuándo usarla |
 |---|---|
 | `--comparar origin/main` | Cuando el cambio toca cómo se ve la página (CSS, HTML, imágenes). Saca capturas a 390 y 1440 px de la rama indicada y de lo actual, y arma imágenes lado a lado. Antes hacé `git fetch origin main` para comparar contra lo último. |
-| `--produccion` | Después de que se acepta un PR, o cuando preguntan si la web publicada anda. Compara las cabeceras de www.ualvarez.com.ar con `_headers` y busca bloqueos de CSP y errores en la página publicada. Netlify tarda uno o dos minutos en publicar: si las cabeceras no coinciden justo después de aceptar el PR, esperá y volvé a correrlo. |
+| `--produccion` | Después de que se acepta un PR, o cuando preguntan si la web publicada anda. Compara las cabeceras de www.ualvarez.com.ar con `_headers` y busca bloqueos de CSP y errores en la página publicada. Cloudflare tarda uno o dos minutos en publicar: si las cabeceras no coinciden justo después de aceptar el PR, esperá y volvé a correrlo. |
+| `--url DIRECCIÓN` | Como `--produccion`, pero contra otra dirección publicada: la de prueba (`https://ualvarez-web.pages.dev`) o la vista previa de un PR (`https://<rama>.ualvarez-web.pages.dev`). |
 | `--salida DIR` | Para elegir dónde quedan el informe y las capturas (si no, va a una carpeta temporal que el script informa al final). Usá el scratchpad de la sesión. |
 
-Tarda unos 30 segundos y sale con código 0 si todo pasa y 1 si algo falla. La primera vez descarga axe-core a `~/.cache/verificar-sitio`.
+Tarda unos 30 segundos y sale con código 0 si todo pasa y 1 si algo falla. La primera vez descarga axe-core a `~/.cache/verificar-sitio`. Usa Playwright; si solo encuentra `playwright-core` en esa carpeta (como en Windows), abre el Chrome instalado.
 
 ## Qué revisa y por qué
 
 - **Accesibilidad (axe-core):** reglas WCAG 2.1 A/AA y buenas prácticas, en cada `.html` de la raíz.
-- **Content-Security-Policy local:** sirve la carpeta con las cabeceras de `_headers`, como Netlify. Cualquier script inline, atributo `on*` o recurso de un dominio no permitido aparece acá antes de llegar a producción.
+- **Content-Security-Policy local:** sirve la carpeta con las cabeceras de `_headers`, como Cloudflare Pages. Cualquier script inline, atributo `on*` o recurso de un dominio no permitido aparece acá antes de llegar a producción.
 - **Errores de JavaScript** al cargar cada página.
 - **Desborde horizontal** en 10 anchos, de 320 a 1440 px.
 - **Objetivos táctiles:** botones y enlaces visibles de al menos 44 px de alto a 320 y 390 px. Los enlaces dentro de una oración quedan exceptuados, como permite WCAG.
@@ -46,7 +47,7 @@ El script imprime un informe en Markdown (y lo guarda en `informe.md` dentro de 
 - **❌ en objetivos táctiles:** el informe dice qué elemento y su tamaño. Se arregla con `min-height: 44px` o más relleno, usando las variables de `base.css`.
 - **❌ en desborde:** el informe dice desde qué ancho se desborda. Suele ser un ancho fijo en px o un texto largo sin cortar.
 - **Capturas «distinta»:** no es una falla. Si el alto no cambió y el porcentaje de píxeles distintos es muy bajo (alrededor de 0,2 % o menos) en una página que no tocaste, suele ser ruido del suavizado de las fuentes: confirmalo mirando la imagen lado a lado. Un cambio real de una palabra también mueve pocos píxeles, pero concentrados en un lugar. Mirá las imágenes `lado-*.png` (antes a la izquierda, después a la derecha) y confirmá que los cambios sean los buscados. Si la diferencia no era intencional, investigala.
-- **En producción,** el script bloquea a propósito `/.netlify/scripts/hud`, el script que inyecta Netlify, porque siempre dispara un aviso de CSP que no es del sitio.
+- **En producción,** las páginas se piden sin «.html» (`/privacidad`), como las sirve Cloudflare Pages. Si aparece un bloqueo de CSP por un script de `/cdn-cgi/` o de `static.cloudflareinsights.com`, es algo que Cloudflare inyecta (ofuscar emails, Rocket Loader, Web Analytics): se apaga en el panel de Cloudflare, no se afloja la política.
 
 ## Cómo contarle el resultado al usuario
 
